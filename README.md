@@ -4,7 +4,13 @@
 
 Provides a way to a open workspaces given their parent directory or specific workspaces.
 
-## Obligatory GIF
+- [Installation](#list-of-text-objects)
+- [Usage](#configuration)
+- [Configuration](#configuration)
+- [Non-Goals](#non-goals)
+- [Contributing](#contributing)
+
+And the obligatory usage GIF:
 
 ![worker-list-example](https://github.com/FireIsGood/worker.nvim/assets/109556932/f098fab5-333b-4638-bccc-60b9e900361e)
 
