@@ -9,6 +9,7 @@ local Config = require("worker-nvim.config")
 ---@return WorkspaceEntry[]
 function M.get_workspaces()
   local directories = require("worker-nvim.config").config.directories
+  local custom_workspaces = require("worker-nvim.config").config.workspaces
 
   ---@type WorkspaceEntry[]
   local workspace_list = {}
@@ -19,6 +20,13 @@ function M.get_workspaces()
     if dir_workspaces then
       workspace_list = vim.tbl_extend("force", workspace_list, dir_workspaces or {})
     end
+  end
+
+  -- Join in the stray workspaces
+  for _, workspace in pairs(custom_workspaces) do
+    local name = workspace[1]
+    local path = workspace[2]
+    table.insert(workspace_list, Util.create_entry(name, path))
   end
 
   table.sort(workspace_list, Util.sort_workspaces)

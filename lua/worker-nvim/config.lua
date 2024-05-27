@@ -8,6 +8,7 @@ local M = {}
 
 ---@class UserConfig
 ---@field directories string[]
+---@field workspaces string[][]
 ---@field sort_by_recent? boolean
 ---@field use_default_keymaps? boolean
 ---@field hooks? UserHooks
@@ -16,6 +17,7 @@ local M = {}
 ---@type UserConfig
 local default_config = {
   directories = {},
+  workspaces = {},
   sort_by_recent = true,
   use_default_keymaps = false,
   hooks = {

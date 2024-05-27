@@ -39,6 +39,24 @@ function M.sort_workspaces(a, b)
   return a.name > b.name
 end
 
+---Creates a WorkspaceEntry from data with an optional cached recent_data
+---@param name string
+---@param path string
+---@param recent_data_pre table?
+---@return WorkspaceEntry
+function M.create_entry(name, path, recent_data_pre)
+  local recent_data = recent_data_pre or M.read_recent_data()
+  ---@type WorkspaceEntry
+  local entry = { name = "", path = "", last_opened = "" }
+
+  -- Modify the name a bit
+  entry.name = string.gsub(" " .. name, "%W%l", string.upper):sub(2)
+  entry.path = path
+
+  entry.last_opened = recent_data[entry.path] or ""
+  return entry
+end
+
 --------------------------------------------------------------------------------
 -- Filesystem stuffs
 --------------------------------------------------------------------------------
@@ -81,6 +99,14 @@ function M.fs_sep()
   end
 end
 
+---@param path string
+function M.remove_trailing_slash(path)
+  if string.sub(path, #path, #path) == M.fs_sep() then
+    path = string.sub(path, #path, #path - 1)
+  end
+  return path
+end
+
 ---Returns a list of the folders in a directory
 ---@param path string
 ---@return WorkspaceEntry[]?
@@ -102,16 +128,8 @@ function M.get_dir_folders(path)
       break
     end
     if type == "directory" then
-      ---@type WorkspaceEntry
-      local entry = { name = "", path = "", last_opened = "" }
-
-      -- Modify the name a bit
-      entry.name = string.gsub(" " .. name, "%W%l", string.upper):sub(2)
-      entry.path = normalized_path .. M.fs_sep() .. name
-
-      entry.last_opened = recent_data[entry.path] or ""
-
-      table.insert(workspace_list, entry)
+      local full_path = M.remove_trailing_slash(path) .. M.fs_sep() .. name .. M.fs_sep()
+      table.insert(workspace_list, M.create_entry(name, full_path, recent_data))
     end
   end
 
