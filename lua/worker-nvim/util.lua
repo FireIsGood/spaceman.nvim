@@ -48,10 +48,15 @@ function M.create_entry(name, path, recent_data_pre)
   local recent_data = recent_data_pre or M.read_recent_data()
   ---@type WorkspaceEntry
   local entry = { name = "", path = "", last_opened = "" }
-
-  -- Modify the name a bit
-  entry.name = string.gsub(" " .. name, "%W%l", string.upper):sub(2)
   entry.path = path
+
+  -- Run the rename function
+  local rename_function = Config.config.rename_function
+  if rename_function then
+    entry.name = rename_function(name)
+  else
+    entry.name = name
+  end
 
   entry.last_opened = recent_data[entry.path] or ""
   return entry

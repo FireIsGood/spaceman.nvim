@@ -11,6 +11,7 @@ local M = {}
 ---@field workspaces string[][]
 ---@field sort_by_recent? boolean
 ---@field use_default_keymaps? boolean
+---@field rename_function? function | nil
 ---@field hooks? UserHooks
 ---@field data_path? string
 
@@ -20,6 +21,7 @@ local default_config = {
   workspaces = {},
   sort_by_recent = true,
   use_default_keymaps = false,
+  rename_function = nil,
   hooks = {
     before_move = nil,
     after_move = nil,
