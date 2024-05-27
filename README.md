@@ -27,7 +27,7 @@ Provides a way to a open workspaces given their parent directory or specific wor
 
 -- packer
 use {
-  "FireIsGood/pond.nvim",
+  "FireIsGood/worker.nvim",
   config = function ()
     require("worker-nvim").setup({})
   end,
