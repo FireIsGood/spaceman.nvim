@@ -59,7 +59,7 @@ You must specify directories to search for workspaces in the setup function call
 require("worker-nvim").setup({
   directories = {},
   sort_by_recent = true,
-  use_default_keymaps = true,
+  use_default_keymaps = false,
   hooks = { -- Single Vim command, table of vim commands, Lua function, or nil
     before_move = nil,
     after_move = nil,
@@ -80,7 +80,7 @@ require("worker-nvim").setup({
     "~/Documents/Whatever_You_Want",
   },
   sort_by_recent = false,
-  use_default_keymaps = false,
+  use_default_keymaps = true,
   hooks = {
     before_move = function() print("hi") end,
     after_move = { "nohlsearch", "norm gg" },
