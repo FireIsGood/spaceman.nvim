@@ -115,7 +115,7 @@ require("worker-nvim").setup({
 })
 ```
 
-### Using a custom rename function
+### Using a Custom Rename Function
 
 ```lua
 require("worker-nvim").setup({
