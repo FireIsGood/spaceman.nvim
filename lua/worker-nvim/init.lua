@@ -1,11 +1,8 @@
 local M = {}
 
-local Util = require("worker-nvim.util")
-
 --------------------------------------------------------------------------------
 
 function M.list_workspaces()
-  Util.notify("This should list workspaces...")
   require("worker-nvim.telescope").list_workspaces()
 end
 

@@ -7,13 +7,13 @@ local M = {}
 ---@field after_move? string[] | function | nil
 
 ---@class UserConfig
----@field workspaces string[]
+---@field directories string[]
 ---@field use_default_keymaps? boolean
 ---@field hooks? UserHooks
 
 ---@type UserConfig
 local default_config = {
-  workspaces = {},
+  directories = {},
   use_default_keymaps = true,
   hooks = {
     before_move = nil,

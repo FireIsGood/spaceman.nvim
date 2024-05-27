@@ -6,13 +6,19 @@ Given a list of parent directories to workspaces, this extension allows you to t
 
 ## Installation
 
+### Dependencies
+
+- [nvim-telescope/telescope.nvim](https://github.com/nvim-telescope/telescope.nvim)
+
+### Options
+
 ```lua
 -- lazy.nvim
 {
   "FireIsGood/worker.nvim",
   config = function()
     require("worker-nvim").setup({
-      workspaces = {
+      directories = {
         "~/Documents/Programming",
         "~/Documents/Fishing",
         "~/Documents/Whatever_You_Want",
@@ -26,7 +32,7 @@ use {
 	"FireIsGood/pond.nvim",
 	config = function ()
 		require("worker-nvim").setup({
-      workspaces = {
+      directories = {
         "~/Documents/Programming",
         "~/Documents/Fishing",
         "~/Documents/Whatever_You_Want",
@@ -46,12 +52,12 @@ Use the command or the builtin keymap.
 
 ## Configuration
 
-You must specify workspaces in the setup function call.
+You must specify directories to search for workspaces in the setup function call.
 
 ```lua
 -- default config
 require("worker-nvim").setup({
-  workspaces = {},
+  directories = {},
   use_default_keymaps = true,
   hooks = { -- Each may be Vim commands, a Lua function, or nil
     before_move = nil,
@@ -60,13 +66,13 @@ require("worker-nvim").setup({
 })
 ```
 
-Each entry in `workspaces` is expanded and normalized, so you can use `~` as short for your home directory.
+Each entry in `directories` is expanded and normalized, so you can use `~` as short for your home directory.
 
 Example setup:
 
 ```lua
 require("worker-nvim").setup({
-  workspaces = {
+  directories = {
     "~/Documents/Programming",
     "~/Documents/Fishing",
     "~/Documents/Whatever_You_Want",
