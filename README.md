@@ -95,7 +95,6 @@ require("worker-nvim").setup({
     { "Config", "~/dotfiles/.config/nvim" },
     { "Dotfiles", "~/dotfiles" },
   }
-  sort_by_recent = false,
   use_default_keymaps = true,
   hooks = {
     before_move = { "nohlsearch", "silent %bdelete!" }
