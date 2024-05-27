@@ -1,4 +1,4 @@
-# worker.nvim
+# 👷 worker.nvim 🚧
 
 A simple, declarative workspace manager.
 
