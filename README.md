@@ -4,6 +4,10 @@
 
 Provides a way to a open workspaces given their parent directory or specific workspaces.
 
+## Obligatory GIF
+
+<!-- GIF goes here -->
+
 ## Installation
 
 ### Dependencies
