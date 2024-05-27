@@ -21,7 +21,7 @@ Provides a way to a open workspaces given their parent directory or specific wor
 {
   "FireIsGood/worker.nvim",
   config = function()
-    require("worker-nvim").setup({})
+    require("worker-nvim").setup()
   end,
 }
 
@@ -29,7 +29,7 @@ Provides a way to a open workspaces given their parent directory or specific wor
 use {
   "FireIsGood/worker.nvim",
   config = function ()
-    require("worker-nvim").setup({})
+    require("worker-nvim").setup()
   end,
 }
 ```
