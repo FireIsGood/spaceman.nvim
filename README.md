@@ -14,7 +14,7 @@ Provides a way to a open workspaces given their parent directory or specific wor
 
 - [nvim-telescope/telescope.nvim](https://github.com/nvim-telescope/telescope.nvim)
 
-### Options
+### Package Managers
 
 ```lua
 -- lazy.nvim
