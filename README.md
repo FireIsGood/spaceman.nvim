@@ -52,15 +52,20 @@ By default, only the command is registered. Otherwise, you can enable the defaul
 
 ## Configuration
 
+> [!NOTE]
+> Directory refers to the parent of multiple workspaces. Workspaces refers to specific workspaces
+
 You must specify directories to search for workspaces in the setup function call.
 
 ```lua
 -- default config
 require("worker-nvim").setup({
-  directories = {},
-  sort_by_recent = true,
-  use_default_keymaps = false,
-  hooks = { -- Single Vim command, table of vim commands, Lua function, or nil
+  directories = {},            -- List of directories
+  workspaces = {},             -- List of workspaces in the format { "name", "path" }
+  sort_by_recent = true,       -- Whether to sort with recently opened workspaces in front
+  use_default_keymaps = false, -- Whether to register keymaps
+  rename_function = nil,       -- Function to rename your folders
+  hooks = {                    -- Hooks of a single Vim command, a table of vim commands, a Lua function, or nil
     before_move = nil,
     after_move = nil,
   },
@@ -68,7 +73,13 @@ require("worker-nvim").setup({
 })
 ```
 
-Each entry in `directories` is expanded and normalized, so you can use `~` as short for your home directory.
+Each entry in `directories` is a path to the parent of many workspaces. Each entry in `workspaces` is a specific
+workspace with its custom name and the path.
+
+All paths are expanded and normalized, so you can use `~` as short for your home directory.
+
+Since opening the directory only changes directory to it, you will likely want to add hooks to delete buffers as seen in
+below.
 
 Example setup:
 
@@ -79,6 +90,11 @@ require("worker-nvim").setup({
     "~/Documents/Fishing",
     "~/Documents/Whatever_You_Want",
   },
+  workspaces = {
+    { "Nvim-Data", "~/.local/share/nvim" },
+    { "Config", "~/dotfiles/.config/nvim" },
+    { "Dotfiles", "~/dotfiles" },
+  }
   sort_by_recent = false,
   use_default_keymaps = true,
   hooks = {
@@ -89,19 +105,29 @@ require("worker-nvim").setup({
 ```
 
 <details>
-<summary>Examples</summary>
+<summary>Further Examples</summary>
 
-## With Sessions.nvim
+### With Sessions.nvim
 
 ```lua
 require("worker-nvim").setup({
-  directories = {
-    -- Your directories
-  },
+  -- Your workspaces and directories
   hooks = {
     before_move = { "noh","SessionsStop" ,"silent %bdelete!" },
     after_move = { "SessionsLoad" },
   },
+})
+```
+
+### Using a custom rename function
+
+```lua
+require("worker-nvim").setup({
+  -- Your workspaces and directories
+  use_default_keymaps = true,
+  rename_function = function(name)
+    return string.gsub(" " .. name, "%W%l", string.upper):sub(2) -- Name to title case
+  end,
 })
 ```
 
