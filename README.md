@@ -10,7 +10,7 @@ Provides a way to a open workspaces given the parent directories or specific wor
 - [Non-Goals](#non-goals)
 - [Contributing](#contributing)
 
-And the obligatory usage GIF:
+And the obligatory usage video:
 
 https://github.com/FireIsGood/spaceman.nvim/assets/109556932/b9bb232e-2a7f-474d-9560-e247d0551772
 
