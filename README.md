@@ -20,6 +20,8 @@ And the obligatory usage GIF:
 
 ### Package Managers
 
+You will need to customize the plugin for actual use, but this is the minimal setup to install:
+
 ```lua
 -- lazy.nvim
 {
@@ -52,7 +54,7 @@ By default, only the command is registered. Otherwise, you can enable the defaul
 > [!NOTE]
 > Directory refers to the parent of multiple workspaces. Workspaces refers to specific workspaces
 
-You must specify directories to search for workspaces in the setup function call.
+The default configuration is as follows:
 
 ```lua
 -- default config
@@ -63,8 +65,8 @@ require("spaceman").setup({
   use_default_keymaps = false, -- Whether to register keymaps
   rename_function = nil,       -- Function to rename your folders
   hooks = {                    -- Hooks of a single Vim command, a table of vim commands, a Lua function, or nil
-    before_move = nil,
-    after_move = nil,
+    before_move = nil,         -- Before changing directory
+    after_move = nil,          -- After changing directory
   },
   data_path = vim.fn.stdpath("data") .. "/spaceman_data.json", -- Stores recently used workspaces
 })
