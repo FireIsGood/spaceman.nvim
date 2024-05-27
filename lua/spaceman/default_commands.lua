@@ -5,7 +5,7 @@ local cmd = vim.api.nvim_create_user_command
 --------------------------------------------------------------------------------
 
 local default_keymaps = {
-  { command = "list_workspaces", user_cmd = "WorkerList", description = "List workspaces" },
+  { command = "list_workspaces", user_cmd = "Spaceman", description = "List workspaces" },
 }
 
 -- User commands
