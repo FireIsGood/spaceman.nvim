@@ -1,8 +1,8 @@
 # 👷 spaceman.nvim 🚧
 
-> A simple, declarative workspace finder.
+> Spaceman\[ager\] for your workspaces
 
-Provides a way to a open workspaces given their parent directory or specific workspaces.
+Provides a way to a open workspaces given the parent directories or specific workspaces.
 
 - [Installation](#list-of-text-objects)
 - [Usage](#configuration)
