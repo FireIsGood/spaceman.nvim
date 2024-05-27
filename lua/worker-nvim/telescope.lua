@@ -42,12 +42,13 @@ function M.list_workspaces(opts)
 
       finder = finders.new_table({
         results = workspaces,
+        ---@param entry WorkspaceEntry
         entry_maker = function(entry)
           return {
             value = entry,
             display = function(disp_entry)
               return displayer({
-                { disp_entry.ordinal },
+                { disp_entry.value.name },
                 { disp_entry.value.path, "String" },
               })
             end,
