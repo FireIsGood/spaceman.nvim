@@ -1,8 +1,8 @@
 # 👷 worker.nvim 🚧
 
-A simple, declarative workspace manager.
+> A simple, declarative workspace finder.
 
-Given a list of parent directories to workspaces, this extension allows you to telescope their workspaces.
+Provides a way to a open workspaces given their parent directory or specific workspaces.
 
 ## Installation
 
