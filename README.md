@@ -1,4 +1,4 @@
-# 👷 spaceman.nvim 🚧
+# 👨‍🚀 spaceman.nvim 🚧
 
 > Spaceman\[ager\] for your workspaces
 
