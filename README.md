@@ -42,9 +42,10 @@ use {
 
 By default, only the command is registered. Otherwise, you can enable the default keymap or write your own API calls.
 
-| Command     | Default Keymap | API Call                                | Description      |
-| ----------- | -------------- | --------------------------------------- | ---------------- |
-| `:Spaceman` | `<leader>wo`   | `require("spaceman").list_workspaces()` | Open a workspace |
+| Command     | Default Keymap | API Call                                   | Description               |
+| ----------- | -------------- | ------------------------------------------ | ------------------------- |
+| `:Spaceman` | `<leader>wo`   | `require("spaceman").list_workspaces()`    | List workspaces           |
+|             |                | `require("spaceman").open_workspace(path)` | Open a specific workspace |
 
 ## Configuration
 
