@@ -12,6 +12,8 @@ Provides a way to a open workspaces given the parent directories or specific wor
 
 And the obligatory usage GIF:
 
+https://github.com/FireIsGood/spaceman.nvim/assets/109556932/b9bb232e-2a7f-474d-9560-e247d0551772
+
 ## Installation
 
 ### Dependencies
