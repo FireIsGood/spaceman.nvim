@@ -94,11 +94,13 @@ require("spaceman").setup({
   workspaces = {
     { "Nvim-Data", "~/.local/share/nvim" },
     { "Config", "~/.config/nvim" },
-  }
+  },
   use_default_keymaps = true,
   hooks = {
-    before_move = { "nohlsearch", "silent %bdelete!" }
-    after_move = function() print("We have arrived.") end,
+    before_move = { "nohlsearch", "silent %bdelete!" },
+    after_move = function()
+      print("We have arrived.")
+    end,
   },
 })
 ```
