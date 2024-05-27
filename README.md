@@ -6,7 +6,7 @@ Provides a way to a open workspaces given their parent directory or specific wor
 
 ## Obligatory GIF
 
-<!-- GIF goes here -->
+![worker-list-example](https://github.com/FireIsGood/worker.nvim/assets/109556932/f098fab5-333b-4638-bccc-60b9e900361e)
 
 ## Installation
 
