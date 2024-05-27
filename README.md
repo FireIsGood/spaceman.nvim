@@ -17,13 +17,7 @@ Given a list of parent directories to workspaces, this extension allows you to t
 {
   "FireIsGood/worker.nvim",
   config = function()
-    require("worker-nvim").setup({
-      directories = {
-        "~/Documents/Programming",
-        "~/Documents/Fishing",
-        "~/Documents/Whatever_You_Want",
-      },
-    })
+    require("worker-nvim").setup({})
   end,
 }
 
@@ -31,13 +25,7 @@ Given a list of parent directories to workspaces, this extension allows you to t
 use {
   "FireIsGood/pond.nvim",
   config = function ()
-    require("worker-nvim").setup({
-      directories = {
-        "~/Documents/Programming",
-        "~/Documents/Fishing",
-        "~/Documents/Whatever_You_Want",
-      },
-    })
+    require("worker-nvim").setup({})
   end,
 }
 ```
@@ -92,8 +80,7 @@ require("worker-nvim").setup({
   },
   workspaces = {
     { "Nvim-Data", "~/.local/share/nvim" },
-    { "Config", "~/dotfiles/.config/nvim" },
-    { "Dotfiles", "~/dotfiles" },
+    { "Config", "~/.config/nvim" },
   }
   use_default_keymaps = true,
   hooks = {
