@@ -44,7 +44,7 @@ use {
 
 ## Usage
 
-Use the command, default keymap, or write your own call to the API.
+By default, only the command is registered. Otherwise, you can enable the default keymap or write your own API calls.
 
 | Command       | Default Keymap | API Call                                   | Description      |
 | ------------- | -------------- | ------------------------------------------ | ---------------- |
@@ -82,11 +82,30 @@ require("worker-nvim").setup({
   sort_by_recent = false,
   use_default_keymaps = true,
   hooks = {
-    before_move = function() print("hi") end,
-    after_move = { "nohlsearch", "norm gg" },
+    before_move = { "nohlsearch", "silent %bdelete!" }
+    after_move = function() print("We have arrived.") end,
   },
 })
 ```
+
+<details>
+<summary>Examples</summary>
+
+## With Sessions.nvim
+
+```lua
+require("worker-nvim").setup({
+  directories = {
+    -- Your directories
+  },
+  hooks = {
+    before_move = { "noh","SessionsStop" ,"silent %bdelete!" },
+    after_move = { "SessionsLoad" },
+  },
+})
+```
+
+</details>
 
 ## Non-goals
 
