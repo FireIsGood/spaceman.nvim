@@ -44,11 +44,11 @@ use {
 
 ## Usage
 
-Use the command or the builtin keymap.
+Use the command, default keymap, or write your own call to the API.
 
-| Command       | Keymap       | Description      |
-| ------------- | ------------ | ---------------- |
-| `:WorkerOpen` | `<leader>wo` | Open a workspace |
+| Command       | Default Keymap | API Call                                   | Description      |
+| ------------- | -------------- | ------------------------------------------ | ---------------- |
+| `:WorkerOpen` | `<leader>wo`   | `require("worker-nvim").list_workspaces()` | Open a workspace |
 
 ## Configuration
 
