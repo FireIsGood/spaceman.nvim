@@ -37,7 +37,8 @@ function M.list_workspaces(opts)
   opts = opts or {}
   pickers
     .new(opts, {
-      prompt_title = "Workspaces",
+      prompt_title = "Open Workspace",
+      results_title = "Workspaces",
 
       finder = finders.new_table({
         results = workspaces,
