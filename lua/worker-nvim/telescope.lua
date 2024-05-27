@@ -10,30 +10,30 @@ local entry_display = require("telescope.pickers.entry_display")
 local actions = require("telescope.actions")
 local action_state = require("telescope.actions.state")
 
----@type WorkspaceEntry[]
-local workspaces = Workspace.get_workspaces()
-
--- Get width to align all entries
-local name_width = 10
-for _, workspace in pairs(workspaces) do
-  if #workspace.name > name_width then
-    name_width = #workspace.name + 2
-  end
-end
-
-local displayer = entry_display.create({
-  separator = " ",
-  items = {
-    { width = name_width },
-    {},
-  },
-})
-
 --------------------------------------------------------------------------------
 
 ---@param opts table?
 ---Lists all workspaces under the configured directories
 function M.list_workspaces(opts)
+  ---@type WorkspaceEntry[]
+  local workspaces = Workspace.get_workspaces()
+
+  -- Get width to align all entries
+  local name_width = 10
+  for _, workspace in pairs(workspaces) do
+    if #workspace.name > name_width then
+      name_width = #workspace.name + 2
+    end
+  end
+
+  local displayer = entry_display.create({
+    separator = " ",
+    items = {
+      { width = name_width },
+      {},
+    },
+  })
+
   opts = opts or {}
   pickers
     .new(opts, {
@@ -52,7 +52,7 @@ function M.list_workspaces(opts)
                 { disp_entry.value.path, "String" },
               })
             end,
-            ordinal = entry.name,
+            ordinal = entry.name, -- Does not do anything as sorting is done beforehand
           }
         end,
       }),

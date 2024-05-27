@@ -58,11 +58,13 @@ You must specify directories to search for workspaces in the setup function call
 -- default config
 require("worker-nvim").setup({
   directories = {},
+  sort_by_recent = true,
   use_default_keymaps = true,
   hooks = { -- Each may be Vim commands, a Lua function, or nil
     before_move = nil,
     after_move = nil,
   },
+  data_path = vim.fn.stdpath("data") .. "/worker-nvim_data.json", -- Stores recently used workspaces
 })
 ```
 
@@ -77,6 +79,7 @@ require("worker-nvim").setup({
     "~/Documents/Fishing",
     "~/Documents/Whatever_You_Want",
   },
+  sort_by_recent = false,
   use_default_keymaps = false,
   hooks = {
     before_move = function() print("hi") end,

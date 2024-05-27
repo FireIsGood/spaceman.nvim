@@ -20,6 +20,8 @@ function M.get_workspaces()
     end
   end
 
+  table.sort(workspace_list, Util.sort_workspaces)
+
   return workspace_list
 end
 
@@ -27,6 +29,9 @@ end
 ---@param workspace WorkspaceEntry
 function M.open_workspace(workspace)
   Util.notify("Opening workspace " .. workspace.name)
+
+  Util.notify("Adding" .. workspace.path .. " to recents")
+  Util.add_recent_data(workspace.path)
 end
 
 --------------------------------------------------------------------------------
