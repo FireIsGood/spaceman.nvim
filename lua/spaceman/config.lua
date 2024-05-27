@@ -29,7 +29,7 @@ local default_config = {
   data_path = vim.fn.stdpath("data") .. "/spaceman_data.json",
 }
 
----@param user_config UserConfig
+---@param user_config UserConfig?
 function M.setup(user_config)
   M.config = vim.tbl_deep_extend("force", default_config, user_config or {})
 

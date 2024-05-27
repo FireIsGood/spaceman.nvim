@@ -13,7 +13,7 @@ end
 
 --------------------------------------------------------------------------------
 
----@param user_config UserConfig
+---@param user_config? UserConfig
 function M.setup(user_config)
   local config = require("spaceman.config").setup(user_config)
 
