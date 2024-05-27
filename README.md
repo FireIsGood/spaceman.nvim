@@ -60,7 +60,7 @@ require("worker-nvim").setup({
   directories = {},
   sort_by_recent = true,
   use_default_keymaps = true,
-  hooks = { -- Each may be Vim commands, a Lua function, or nil
+  hooks = { -- Single Vim command, table of vim commands, Lua function, or nil
     before_move = nil,
     after_move = nil,
   },

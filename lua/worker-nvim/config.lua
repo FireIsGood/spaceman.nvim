@@ -3,8 +3,8 @@ local M = {}
 --------------------------------------------------------------------------------
 
 ---@class UserHooks
----@field before_move? string[] | function | nil
----@field after_move? string[] | function | nil
+---@field before_move? string[] | string | function | nil
+---@field after_move? string[] | string | function | nil
 
 ---@class UserConfig
 ---@field directories string[]

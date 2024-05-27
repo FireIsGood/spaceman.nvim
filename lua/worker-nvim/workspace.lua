@@ -1,6 +1,7 @@
 local M = {}
 
 local Util = require("worker-nvim.util")
+local Config = require("worker-nvim.config")
 
 --------------------------------------------------------------------------------
 
@@ -25,13 +26,41 @@ function M.get_workspaces()
   return workspace_list
 end
 
----Opens a workspace
----@param workspace WorkspaceEntry
-function M.open_workspace(workspace)
-  Util.notify("Opening workspace " .. workspace.name)
+---@param hook string[] | string | function
+function M.run_hook(hook, path)
+  -- Run single vim hook
+  if type(hook) == "string" then
+    vim.cmd(hook)
+  end
 
-  Util.notify("Adding" .. workspace.path .. " to recents")
-  Util.add_recent_data(workspace.path)
+  -- Run multiple vim hooks
+  if type(hook) == "table" then
+    for _, command in pairs(hook) do
+      vim.cmd(command)
+    end
+  end
+
+  -- Run function
+  if type(hook) == "function" then
+    hook(path)
+  end
+end
+
+---Opens a workspace
+---@param path string
+function M.open_workspace(path)
+  Util.add_recent_data(path)
+
+  Util.notify("Opening workspace " .. path)
+  Util.notify("Running before_move hook" .. path)
+  local hooks = Config.config.hooks or {}
+  M.run_hook(hooks.before_move)
+
+  -- Change directory
+  vim.cmd.cd(path)
+
+  Util.notify("Running after_move hook" .. path)
+  M.run_hook(hooks.after_move)
 end
 
 --------------------------------------------------------------------------------

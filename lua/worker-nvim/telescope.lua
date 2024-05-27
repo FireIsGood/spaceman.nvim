@@ -64,8 +64,7 @@ function M.list_workspaces(opts)
           actions.close(prompt_bufnr)
           local selection = action_state.get_selected_entry()
           if selection and selection ~= "" then
-            Util.notify("Selected " .. vim.inspect(selection.value))
-            Workspace.open_workspace(selection.value)
+            Workspace.open_workspace(selection.value.path)
           else
             Util.notify("No workspace selected", "warn")
           end
