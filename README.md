@@ -29,16 +29,16 @@ Given a list of parent directories to workspaces, this extension allows you to t
 
 -- packer
 use {
-	"FireIsGood/pond.nvim",
-	config = function ()
-		require("worker-nvim").setup({
+  "FireIsGood/pond.nvim",
+  config = function ()
+    require("worker-nvim").setup({
       directories = {
         "~/Documents/Programming",
         "~/Documents/Fishing",
         "~/Documents/Whatever_You_Want",
       },
     })
-	end,
+  end,
 }
 ```
 
