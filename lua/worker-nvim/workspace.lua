@@ -51,15 +51,12 @@ end
 function M.open_workspace(path)
   Util.add_recent_data(path)
 
-  Util.notify("Opening workspace " .. path)
-  Util.notify("Running before_move hook" .. path)
   local hooks = Config.config.hooks or {}
   M.run_hook(hooks.before_move)
 
   -- Change directory
   vim.cmd.cd(path)
 
-  Util.notify("Running after_move hook" .. path)
   M.run_hook(hooks.after_move)
 end
 
