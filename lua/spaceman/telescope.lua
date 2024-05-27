@@ -1,7 +1,7 @@
 local M = {}
 
-local Util = require("worker-nvim.util")
-local Workspace = require("worker-nvim.workspace")
+local Util = require("spaceman.util")
+local Workspace = require("spaceman.workspace")
 
 local pickers = require("telescope.pickers")
 local finders = require("telescope.finders")

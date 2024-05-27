@@ -1,6 +1,6 @@
 local M = {}
 
-local Util = require("worker-nvim.util")
+local Util = require("spaceman.util")
 
 --------------------------------------------------------------------------------
 

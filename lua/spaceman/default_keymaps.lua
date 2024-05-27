@@ -1,6 +1,6 @@
 local M = {}
 
-local Config = require("worker-nvim.config")
+local Config = require("spaceman.config")
 
 local keymap = vim.keymap.set
 
@@ -15,7 +15,7 @@ function M.setup()
   if Config.config.use_default_keymaps then
     for _, binding in pairs(default_keymaps) do
       keymap("n", binding.keymap, function()
-        require("worker-nvim")[binding.command]()
+        require("spaceman")[binding.command]()
       end, { desc = binding.description })
     end
   end

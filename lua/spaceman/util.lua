@@ -1,6 +1,6 @@
 local M = {}
 
-local Config = require("worker-nvim.config")
+local Config = require("spaceman.config")
 
 local uv = vim.loop
 
@@ -16,7 +16,7 @@ local uv = vim.loop
 ---Notifies with the 'msg' at the given 'level' of severity. Defaults to INFO
 function M.notify(msg, level)
   level = level or "info"
-  vim.notify(msg, vim.log.levels[level:upper()], { title = "worker.nvim" })
+  vim.notify(msg, vim.log.levels[level:upper()], { title = "spaceman.nvim" })
 end
 
 ---@param a WorkspaceEntry
@@ -80,12 +80,12 @@ function M.add_recent_data(path)
 
   local recent_data = vim.tbl_deep_extend("force", M.read_recent_data(), entry)
 
-  require("worker-nvim.json").write(recent_data, M.data_path())
+  require("spaceman.json").write(recent_data, M.data_path())
 end
 
 ---Returns a list of paths and when they were last opened
 function M.read_recent_data()
-  local recent_data = require("worker-nvim.json").read(M.data_path())
+  local recent_data = require("spaceman.json").read(M.data_path())
   return recent_data or {}
 end
 

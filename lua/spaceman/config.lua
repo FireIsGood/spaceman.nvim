@@ -26,7 +26,7 @@ local default_config = {
     before_move = nil,
     after_move = nil,
   },
-  data_path = vim.fn.stdpath("data") .. "/worker-nvim_data.json",
+  data_path = vim.fn.stdpath("data") .. "/spaceman_data.json",
 }
 
 ---@param user_config UserConfig

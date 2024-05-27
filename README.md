@@ -1,4 +1,4 @@
-# 👷 worker.nvim 🚧
+# 👷 spaceman.nvim 🚧
 
 > A simple, declarative workspace finder.
 
@@ -12,8 +12,6 @@ Provides a way to a open workspaces given their parent directory or specific wor
 
 And the obligatory usage GIF:
 
-![worker-list-example](https://github.com/FireIsGood/worker.nvim/assets/109556932/f098fab5-333b-4638-bccc-60b9e900361e)
-
 ## Installation
 
 ### Dependencies
@@ -25,17 +23,17 @@ And the obligatory usage GIF:
 ```lua
 -- lazy.nvim
 {
-  "FireIsGood/worker.nvim",
+  "FireIsGood/spaceman.nvim",
   config = function()
-    require("worker-nvim").setup()
+    require("spaceman").setup()
   end,
 }
 
 -- packer
 use {
-  "FireIsGood/worker.nvim",
+  "FireIsGood/spaceman.nvim",
   config = function ()
-    require("worker-nvim").setup()
+    require("spaceman").setup()
   end,
 }
 ```
@@ -44,9 +42,9 @@ use {
 
 By default, only the command is registered. Otherwise, you can enable the default keymap or write your own API calls.
 
-| Command       | Default Keymap | API Call                                   | Description      |
-| ------------- | -------------- | ------------------------------------------ | ---------------- |
-| `:WorkerOpen` | `<leader>wo`   | `require("worker-nvim").list_workspaces()` | Open a workspace |
+| Command     | Default Keymap | API Call                                | Description      |
+| ----------- | -------------- | --------------------------------------- | ---------------- |
+| `:Spaceman` | `<leader>wo`   | `require("spaceman").list_workspaces()` | Open a workspace |
 
 ## Configuration
 
@@ -57,7 +55,7 @@ You must specify directories to search for workspaces in the setup function call
 
 ```lua
 -- default config
-require("worker-nvim").setup({
+require("spaceman").setup({
   directories = {},            -- List of directories
   workspaces = {},             -- List of workspaces in the format { "name", "path" }
   sort_by_recent = true,       -- Whether to sort with recently opened workspaces in front
@@ -67,7 +65,7 @@ require("worker-nvim").setup({
     before_move = nil,
     after_move = nil,
   },
-  data_path = vim.fn.stdpath("data") .. "/worker-nvim_data.json", -- Stores recently used workspaces
+  data_path = vim.fn.stdpath("data") .. "/spaceman_data.json", -- Stores recently used workspaces
 })
 ```
 
@@ -82,7 +80,7 @@ below.
 Example setup:
 
 ```lua
-require("worker-nvim").setup({
+require("spaceman").setup({
   directories = {
     "~/Documents/Programming",
     "~/Documents/Fishing",
@@ -106,7 +104,7 @@ require("worker-nvim").setup({
 ### With Sessions.nvim
 
 ```lua
-require("worker-nvim").setup({
+require("spaceman").setup({
   -- Your workspaces and directories
   hooks = {
     before_move = { "noh","SessionsStop" ,"silent %bdelete!" },
@@ -118,7 +116,7 @@ require("worker-nvim").setup({
 ### Using a Custom Rename Function
 
 ```lua
-require("worker-nvim").setup({
+require("spaceman").setup({
   -- Your workspaces and directories
   use_default_keymaps = true,
   rename_function = function(name)

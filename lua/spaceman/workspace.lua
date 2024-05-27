@@ -1,15 +1,15 @@
 local M = {}
 
-local Util = require("worker-nvim.util")
-local Config = require("worker-nvim.config")
+local Util = require("spaceman.util")
+local Config = require("spaceman.config")
 
 --------------------------------------------------------------------------------
 
 ---Returns all workspaces
 ---@return WorkspaceEntry[]
 function M.get_workspaces()
-  local directories = require("worker-nvim.config").config.directories
-  local custom_workspaces = require("worker-nvim.config").config.workspaces
+  local directories = require("spaceman.config").config.directories
+  local custom_workspaces = require("spaceman.config").config.workspaces
 
   ---@type WorkspaceEntry[]
   local workspace_list = {}

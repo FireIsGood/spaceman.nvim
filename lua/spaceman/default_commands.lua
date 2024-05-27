@@ -12,7 +12,7 @@ local default_keymaps = {
 function M.setup()
   for _, binding in pairs(default_keymaps) do
     cmd(binding.user_cmd, function()
-      require("worker-nvim")[binding.command]()
+      require("spaceman")[binding.command]()
     end, { desc = binding.description })
   end
 end
