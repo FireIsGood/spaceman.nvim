@@ -31,6 +31,10 @@ function M.get_workspaces()
 
   table.sort(workspace_list, Util.sort_workspaces)
 
+  if #workspace_list == 0 then
+    Util.notify("No workspaces found", "warn")
+  end
+
   return workspace_list
 end
 
