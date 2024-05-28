@@ -85,6 +85,7 @@ require("spaceman").setup({
     before_move = nil,         -- Before changing directory
     after_move = nil,          -- After changing directory
   },
+  telescope_opts = nil,
   data_path = vim.fn.stdpath("data") .. "/spaceman_data.json", -- Stores recently used workspaces
 })
 ```
@@ -176,7 +177,7 @@ require("spaceman").setup({
 })
 ```
 
-### Saving the Data file
+### Saving the Data file Elsewhere
 
 The data file tracks timestamps for your recently used folders. If you wanted to share this across machines, you can
 change where it is saved.
@@ -185,6 +186,23 @@ change where it is saved.
 require("spaceman").setup({
   -- [OTHER SETTINGS]
   data_path = "~/Documents/sync-or-whatever/spaceman_data.json", -- Store in a sync folder
+})
+```
+
+### Telescope Options
+
+You may set a table of opts, either literally or through preset themes. See [Telescope
+Themes](https://github.com/nvim-telescope/telescope.nvim#themes) or `:help telescope.setup()` more details on these
+tables.
+
+```lua
+require("spaceman").setup({
+  -- [OTHER SETTINGS]
+  telescope_opts = require("telescope.themes").get_dropdown({
+    prompt_title = "Cool Dropdown",
+    results_title = "Items or Something",
+    scroll_strategy = "limit",
+  }),
 })
 ```
 

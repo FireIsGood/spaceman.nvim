@@ -1,5 +1,6 @@
 local M = {}
 
+local Config = require("spaceman.config")
 local Util = require("spaceman.util")
 local Workspace = require("spaceman.workspace")
 
@@ -38,7 +39,8 @@ function M.list_workspaces(opts)
     },
   })
 
-  opts = opts or {}
+  local user_opts = Config.config.telescope_opts
+  opts = vim.tbl_deep_extend("force", user_opts or {}, opts or {})
   pickers
     .new(opts, {
       prompt_title = "Open Workspace",

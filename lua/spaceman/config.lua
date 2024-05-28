@@ -13,6 +13,7 @@ local M = {}
 ---@field use_default_keymaps? boolean
 ---@field rename_function? function | nil
 ---@field hooks? UserHooks
+---@field telescope_opts? table?
 ---@field data_path? string?
 
 ---@type UserConfig
@@ -26,6 +27,7 @@ local default_config = {
     before_move = nil,
     after_move = nil,
   },
+  telescope_opts = nil,
   data_path = vim.fn.stdpath("data") .. "/spaceman_data.json",
 }
 
