@@ -18,6 +18,10 @@ function M.list_workspaces(opts)
   ---@type WorkspaceEntry[]
   local workspaces = Workspace.get_workspaces()
 
+  if #workspaces == 0 then
+    Util.notify("No workspaces found", "warn")
+  end
+
   -- Get width to align all entries
   local name_width = 10
   for _, workspace in pairs(workspaces) do

@@ -6,6 +6,10 @@ function M.list_workspaces()
   require("spaceman.telescope").list_workspaces()
 end
 
+function M.count_workspaces()
+  require("spaceman.workspace").count_workspaces()
+end
+
 ---@param path string
 function M.open_workspace(path)
   require("spaceman.workspace").open_workspace(path)

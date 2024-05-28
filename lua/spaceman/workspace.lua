@@ -31,10 +31,6 @@ function M.get_workspaces()
 
   table.sort(workspace_list, Util.sort_workspaces)
 
-  if #workspace_list == 0 then
-    Util.notify("No workspaces found", "warn")
-  end
-
   return workspace_list
 end
 
@@ -70,6 +66,12 @@ function M.open_workspace(path)
   vim.cmd.cd(path)
 
   M.run_hook(hooks.after_move)
+end
+
+---Counts and notifies the number of workspaces
+function M.count_workspaces()
+  local count = #M.get_workspaces()
+  Util.notify(tostring(count) .. " Workspaces found")
 end
 
 --------------------------------------------------------------------------------

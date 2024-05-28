@@ -6,6 +6,7 @@ local cmd = vim.api.nvim_create_user_command
 
 local default_user_commands = {
   { command = "list_workspaces", user_cmd = "Spaceman", description = "List workspaces" },
+  { command = "count_workspaces", user_cmd = "SpacemanCount", description = "Count workspaces" },
 }
 
 -- User commands

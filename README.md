@@ -58,10 +58,11 @@ For a full list of options and examples of using specific workspaces, see [Confi
 
 By default, only the command is registered. Otherwise, you can enable the default keymap or write your own API calls.
 
-| Command     | Default Keymap | API Call                                   | Description               |
-| ----------- | -------------- | ------------------------------------------ | ------------------------- |
-| `:Spaceman` | `<leader>wo`   | `require("spaceman").list_workspaces()`    | List workspaces           |
-|             |                | `require("spaceman").open_workspace(path)` | Open a specific workspace |
+| Command          | Default Keymap | API Call                                   | Description                    |
+| ---------------- | -------------- | ------------------------------------------ | ------------------------------ |
+| `:Spaceman`      | `<leader>wo`   | `require("spaceman").list_workspaces()`    | List workspaces                |
+| `:SpacemanCount` | `<leader>wc`   | `require("spaceman").count_workspaces()`   | Count the number of workspaces |
+|                  |                | `require("spaceman").open_workspace(path)` | Open a specific workspace      |
 
 ## Configuration
 
