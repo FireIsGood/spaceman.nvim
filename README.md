@@ -160,6 +160,8 @@ require("spaceman").setup({
   -- [OTHER SETTINGS]
   rename_function = function(name)
     return string.gsub(" " .. name, "%W%l", string.upper):sub(2) -- Name to title case
+    -- return string.gsub(name, "[-_]", " ")                     -- Underline and dash to space
+    -- return string.gsub(name, "[-%s]", "_")                    -- Space and dash to underline
   end,
 })
 ```
