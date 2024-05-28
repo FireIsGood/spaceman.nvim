@@ -132,6 +132,9 @@ require("spaceman").setup({
 })
 ```
 
+> [!NOTE]
+> Workspaces linking to the same folder will override directories.
+
 <details>
 <summary>Further Examples</summary>
 
