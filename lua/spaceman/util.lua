@@ -67,25 +67,37 @@ end
 --------------------------------------------------------------------------------
 
 ---Returns the data path for recent data
+---@return string?
 function M.data_path()
-  return vim.fs.normalize(Config.config.data_path)
+  local data_path = Config.config.data_path
+  return data_path and vim.fs.normalize(data_path)
 end
 
 ---Adds a path to the recently used data at the current time
 ---@param path string
 function M.add_recent_data(path)
+  local data_path = M.data_path()
+  if data_path == nil then
+    return
+  end
+
   local entry = {
     [path] = os.date("%Y-%m-%dT%H:%M:%S"),
   }
 
   local recent_data = vim.tbl_deep_extend("force", M.read_recent_data(), entry)
 
-  require("spaceman.json").write(recent_data, M.data_path())
+  require("spaceman.json").write(recent_data, data_path)
 end
 
 ---Returns a list of paths and when they were last opened
 function M.read_recent_data()
-  local recent_data = require("spaceman.json").read(M.data_path())
+  local data_path = M.data_path()
+  if data_path == nil then
+    return {}
+  end
+
+  local recent_data = require("spaceman.json").read(data_path)
   return recent_data or {}
 end
 

@@ -13,7 +13,7 @@ local M = {}
 ---@field use_default_keymaps? boolean
 ---@field rename_function? function | nil
 ---@field hooks? UserHooks
----@field data_path? string
+---@field data_path? string?
 
 ---@type UserConfig
 local default_config = {
