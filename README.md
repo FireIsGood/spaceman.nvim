@@ -18,7 +18,8 @@ https://github.com/FireIsGood/spaceman.nvim/assets/109556932/b9bb232e-2a7f-474d-
 
 ### Dependencies
 
-- [nvim-telescope/telescope.nvim](https://github.com/nvim-telescope/telescope.nvim)
+- [nvim-telescope/telescope.nvim](https://github.com/nvim-telescope/telescope.nvim) if you want to use the Telescope
+  adapter
 
 ### Package Managers
 
@@ -81,6 +82,7 @@ require("spaceman").setup({
   sort_by_recent = true,       -- Whether to sort with recently opened workspaces in front
   use_default_keymaps = false, -- Whether to register keymaps
   rename_function = nil,       -- Function to rename your folders
+  adapter = "telescope",       -- Which adapter to use, either "telescope" or "vim-ui" (for compatibility)
   hooks = {                    -- Hooks of a single Vim command, a table of vim commands, a Lua function, or nil
     before_move = nil,         -- Before changing directory
     after_move = nil,          -- After changing directory
@@ -179,7 +181,19 @@ require("spaceman").setup({
 })
 ```
 
-### Saving the Data file Elsewhere
+### Use vim-ui Instead of Telescope
+
+If you don't want to use telescope for any reason, you can explicitly switch to using the vim-ui menu. If you don't have
+telescope installed and don't explicitly set the adapter here, you will get a warning every time you list workspaces.
+
+```lua
+require("spaceman").setup({
+  -- [OTHER SETTINGS]
+  adapter = "vim-ui",
+})
+```
+
+### Saving the Data File Elsewhere
 
 The data file tracks timestamps for your recently used folders. If you wanted to share this across machines, you can
 change where it is saved.

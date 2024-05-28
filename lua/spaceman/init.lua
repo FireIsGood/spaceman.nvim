@@ -3,7 +3,7 @@ local M = {}
 --------------------------------------------------------------------------------
 
 function M.list_workspaces()
-  require("spaceman.telescope").list_workspaces()
+  require("spaceman.workspace").list_workspaces()
 end
 
 function M.count_workspaces()

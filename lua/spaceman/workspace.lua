@@ -54,6 +54,27 @@ function M.run_hook(hook, path)
   end
 end
 
+--------------------------------------------------------------------------------
+
+---List workspaces
+function M.list_workspaces()
+  local adapter_name = Config.config.adapter
+  local adapter = require("spaceman.adapters.vim-ui")
+
+  -- Switch to a specific adapter if possible
+  local success = false
+  if adapter_name == "telescope" then
+    success, adapter = pcall(require, "spaceman.adapters.telescope")
+  end
+
+  if not success or not adapter then
+    Util.notify("Adapter incorrectly configured, falling back to vim-ui", "error")
+    adapter = require("spaceman.adapters.vim-ui")
+  end
+
+  adapter.list_workspaces()
+end
+
 ---Opens a workspace
 ---@param path string
 function M.open_workspace(path)
