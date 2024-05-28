@@ -145,7 +145,7 @@ require("spaceman").setup({
 require("spaceman").setup({
   -- [OTHER SETTINGS]
   hooks = {
-    before_move = { "noh","SessionsStop" ,"silent %bdelete!" },
+    before_move = { "noh", "SessionsStop", "silent %bdelete!" },
     after_move = { "SessionsLoad" },
   },
 })
