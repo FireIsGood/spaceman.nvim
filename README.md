@@ -241,3 +241,7 @@ For more plugins in that vein, check out the [Telescope Extensions wiki](https:/
 ## Contributing
 
 Feel free to make issues or pull requests!
+
+## License
+
+[MIT](https://choosealicense.com/licenses/mit/)
