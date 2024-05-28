@@ -22,14 +22,19 @@ https://github.com/FireIsGood/spaceman.nvim/assets/109556932/b9bb232e-2a7f-474d-
 
 ### Package Managers
 
-You will need to customize the plugin for actual use, but this is the minimal setup to install:
+A basic setup to turn your `~/Documents/Projects` folder into a workspace parent and enable the keymaps:
 
 ```lua
 -- lazy.nvim
 {
   "FireIsGood/spaceman.nvim",
   config = function()
-    require("spaceman").setup()
+    require("spaceman").setup({
+      directories = {
+        "~/Documents/Projects"
+      },
+      use_default_keymaps = true,
+    })
   end,
 }
 
@@ -37,10 +42,17 @@ You will need to customize the plugin for actual use, but this is the minimal se
 use {
   "FireIsGood/spaceman.nvim",
   config = function ()
-    require("spaceman").setup()
+    require("spaceman").setup({
+      directories = {
+        "~/Documents/Projects"
+      },
+      use_default_keymaps = true,
+    })
   end,
 }
 ```
+
+For a full list of options and examples of using specific workspaces, see [Configuration](#configuration) below.
 
 ## Usage
 
@@ -55,6 +67,8 @@ By default, only the command is registered. Otherwise, you can enable the defaul
 
 > [!NOTE]
 > Directory refers to the parent of multiple workspaces. Workspaces refers to specific workspaces
+
+### Defaults
 
 The default configuration is as follows:
 
@@ -74,30 +88,42 @@ require("spaceman").setup({
 })
 ```
 
+### Basic Setup
+
 Each entry in `directories` is a path to the parent of many workspaces. Each entry in `workspaces` is a specific
 workspace with its custom name and the path.
 
 All paths are expanded and normalized, so you can use `~` as short for your home directory.
 
-Since opening the directory only changes directory to it, you will likely want to add hooks to delete buffers as seen in
-below.
+Since opening the directory only changes directory to it, you will likely want to add hooks to delete buffers and/or set
+up sessions.
 
-Example setup:
+Basic setup using directories, workspaces, and custom hooks:
 
 ```lua
 require("spaceman").setup({
+  -- Workspace parents
   directories = {
     "~/Documents/Programming",
     "~/Documents/Fishing",
     "~/Documents/Whatever_You_Want",
   },
+
+  -- Individual named workspaces
   workspaces = {
     { "Nvim-Data", "~/.local/share/nvim" },
     { "Config", "~/.config/nvim" },
   },
+
+  -- Enable the default keymaps
   use_default_keymaps = true,
+
+  -- Hooks to be run before and after moving
   hooks = {
+    -- Vim command list (A single string also works)
     before_move = { "nohlsearch", "silent %bdelete!" },
+
+    -- Function (usually an anonymous function definition)
     after_move = function()
       print("We have arrived.")
     end,
@@ -112,7 +138,7 @@ require("spaceman").setup({
 
 ```lua
 require("spaceman").setup({
-  -- Your workspaces and directories
+  -- [OTHER SETTINGS]
   hooks = {
     before_move = { "noh","SessionsStop" ,"silent %bdelete!" },
     after_move = { "SessionsLoad" },
@@ -122,13 +148,39 @@ require("spaceman").setup({
 
 ### Using a Custom Rename Function
 
+The custom rename function is run on ALL names, including custom workspace names.
+
 ```lua
 require("spaceman").setup({
-  -- Your workspaces and directories
-  use_default_keymaps = true,
+  -- [OTHER SETTINGS]
   rename_function = function(name)
     return string.gsub(" " .. name, "%W%l", string.upper):sub(2) -- Name to title case
   end,
+})
+```
+
+### Disable Sorting
+
+You can disable sorting if you want a truly declarative config with no recent files. If you also don't want to save the
+data file at all, you can change the path to `nil`
+
+```lua
+require("spaceman").setup({
+  -- [OTHER SETTINGS]
+  sort_by_recent = false,
+  data_path = nil, -- Optional: don't save the data path at all
+})
+```
+
+### Saving the Data file
+
+The data file tracks timestamps for your recently used folders. If you wanted to share this across machines, you can
+change where it is saved.
+
+```lua
+require("spaceman").setup({
+  -- [OTHER SETTINGS]
+  data_path = "~/Documents/sync-or-whatever/spaceman_data.json", -- Store in a sync folder
 })
 ```
 
