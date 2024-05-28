@@ -85,7 +85,7 @@ require("spaceman").setup({
     before_move = nil,         -- Before changing directory
     after_move = nil,          -- After changing directory
   },
-  telescope_opts = nil,
+  telescope_opts = nil,        -- Options to pass to the telescope window
   data_path = vim.fn.stdpath("data") .. "/spaceman_data.json", -- Stores recently used workspaces
 })
 ```
