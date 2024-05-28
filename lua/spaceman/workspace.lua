@@ -62,7 +62,7 @@ function M.list_workspaces()
   local adapter = require("spaceman.adapters.vim-ui")
 
   -- Switch to a specific adapter if possible
-  local success = false
+  local success = true
   if adapter_name == "telescope" then
     success, adapter = pcall(require, "spaceman.adapters.telescope")
   end
