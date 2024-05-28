@@ -9,6 +9,7 @@ Provides a way to a open workspaces given the parent directories or specific wor
 - [Configuration](#configuration)
 - [Non-Goals](#non-goals)
 - [Contributing](#contributing)
+- [License](#license)
 
 And the obligatory usage video:
 
