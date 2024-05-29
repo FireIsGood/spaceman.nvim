@@ -15,7 +15,7 @@ local action_state = require("telescope.actions.state")
 
 ---@param opts table?
 ---Lists all workspaces under the configured directories
-function M.list_workspaces(opts)
+function M.open_workspaces(opts)
   ---@type WorkspaceEntry[]
   local workspaces = Workspace.get_workspaces()
 

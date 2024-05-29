@@ -11,7 +11,7 @@ local function pad_to_len(str, len)
   return str .. string.rep(" ", len - #str)
 end
 
-function M.list_workspaces()
+function M.open_workspaces()
   ---@type WorkspaceEntry[]
   local workspaces = Workspace.get_workspaces()
 

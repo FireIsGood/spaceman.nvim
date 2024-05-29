@@ -2,8 +2,8 @@ local M = {}
 
 --------------------------------------------------------------------------------
 
-function M.list_workspaces()
-  require("spaceman.workspace").list_workspaces()
+function M.open_workspaces()
+  require("spaceman.workspace").open_workspaces()
 end
 
 function M.count_workspaces()
@@ -11,7 +11,7 @@ function M.count_workspaces()
 end
 
 ---@param path string
-function M.open_workspace(path)
+function M.api_open_workspace(path)
   require("spaceman.workspace").open_workspace(path)
 end
 

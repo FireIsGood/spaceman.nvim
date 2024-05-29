@@ -62,6 +62,24 @@ function M.create_entry(name, path, recent_data_pre)
   return entry
 end
 
+function M.get_adapter()
+  local adapter_name = Config.config.adapter
+  local adapter = require("spaceman.adapters.vim-ui")
+
+  -- Switch to a specific adapter if possible
+  local success = true
+  if adapter_name == "telescope" then
+    success, adapter = pcall(require, "spaceman.adapters.telescope")
+  end
+
+  if not success or not adapter then
+    M.notify("Adapter incorrectly configured, falling back to vim-ui", "error")
+    adapter = require("spaceman.adapters.vim-ui")
+  end
+
+  return adapter
+end
+
 --------------------------------------------------------------------------------
 -- Filesystem stuffs
 --------------------------------------------------------------------------------

@@ -7,7 +7,7 @@ local keymap = vim.keymap.set
 --------------------------------------------------------------------------------
 
 local default_keymaps = {
-  { command = "list_workspaces", keymap = "<leader>wo", description = "List workspaces" },
+  { command = "open_workspaces", keymap = "<leader>wo", description = "Open workspaces" },
   { command = "count_workspaces", keymap = "<leader>wc", description = "Count workspaces" },
 }
 

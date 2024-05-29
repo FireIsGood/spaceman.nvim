@@ -57,20 +57,12 @@ end
 --------------------------------------------------------------------------------
 
 ---List workspaces
-function M.list_workspaces()
-  local adapter_name = Config.config.adapter
-  local adapter = require("spaceman.adapters.vim-ui")
+function M.open_workspaces()
+  local adapter = Util.get_adapter()
 
-  -- Switch to a specific adapter if possible
-  local success = true
-  if adapter_name == "telescope" then
-    success, adapter = pcall(require, "spaceman.adapters.telescope")
-  end
+  adapter.open_workspaces()
+end
 
-  if not success or not adapter then
-    Util.notify("Adapter incorrectly configured, falling back to vim-ui", "error")
-    adapter = require("spaceman.adapters.vim-ui")
-  end
 
   adapter.list_workspaces()
 end
