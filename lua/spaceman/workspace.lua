@@ -34,6 +34,20 @@ function M.get_workspaces()
   return workspace_list
 end
 
+function M.get_directories()
+  local directories = require("spaceman.config").config.directories
+
+  local directory_list = {}
+
+  for _, directory in pairs(directories) do
+    local name = directory:match("^.*%/([^/]+)/?$")
+    local path = directory
+    table.insert(directory_list, Util.create_entry(name, path))
+  end
+
+  return directory_list
+end
+
 ---@param hook string[] | string | function
 function M.run_hook(hook, path)
   -- Run single vim hook
@@ -63,8 +77,10 @@ function M.open_workspaces()
   adapter.open_workspaces()
 end
 
+function M.open_directories()
+  local adapter = Util.get_adapter()
 
-  adapter.list_workspaces()
+  adapter.open_directories()
 end
 
 ---Opens a workspace

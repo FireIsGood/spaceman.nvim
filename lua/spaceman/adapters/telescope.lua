@@ -81,6 +81,74 @@ function M.open_workspaces(opts)
     :find()
 end
 
+---@param opts table?
+---Lists all directories to open in the default app
+function M.open_directories(opts)
+  ---@type WorkspaceEntry[]
+  local directories = Workspace.get_directories()
+
+  if #directories == 0 then
+    Util.notify("No directories found", "warn")
+  end
+
+  -- Get width to align all entries
+  local name_width = 10
+  for _, directory in pairs(directories) do
+    if #directory.name > name_width then
+      name_width = #directory.name + 2
+    end
+  end
+
+  local displayer = entry_display.create({
+    separator = " ",
+    items = {
+      { width = name_width },
+      {},
+    },
+  })
+
+  local user_opts = Config.config.telescope_opts
+  opts = vim.tbl_deep_extend("force", user_opts or {}, opts or {})
+  pickers
+    .new(opts, {
+      prompt_title = "Open Parent Directory",
+      results_title = "Parent Directory",
+
+      finder = finders.new_table({
+        results = directories,
+        ---@param entry WorkspaceEntry
+        entry_maker = function(entry)
+          return {
+            value = entry,
+            display = function(disp_entry)
+              return displayer({
+                { disp_entry.value.name },
+                { disp_entry.value.path, "String" },
+              })
+            end,
+            ordinal = entry.name, -- Does not do anything as sorting is done beforehand
+          }
+        end,
+      }),
+
+      sorter = conf.file_sorter(opts),
+
+      attach_mappings = function(prompt_bufnr)
+        actions.select_default:replace(function()
+          actions.close(prompt_bufnr)
+          local selection = action_state.get_selected_entry()
+          if selection and selection ~= "" then
+            vim.cmd("silent !open " .. selection.value.path)
+          else
+            Util.notify("No directory selected", "warn")
+          end
+        end)
+        return true
+      end,
+    })
+    :find()
+end
+
 --------------------------------------------------------------------------------
 
 return M

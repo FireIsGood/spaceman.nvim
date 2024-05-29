@@ -8,6 +8,7 @@ local keymap = vim.keymap.set
 
 local default_keymaps = {
   { command = "open_workspaces", keymap = "<leader>wo", description = "Open workspaces" },
+  { command = "open_directories", keymap = "<leader>wd", description = "Open directories" },
   { command = "count_workspaces", keymap = "<leader>wc", description = "Count workspaces" },
 }
 

@@ -6,6 +6,10 @@ function M.open_workspaces()
   require("spaceman.workspace").open_workspaces()
 end
 
+function M.open_directories()
+  require("spaceman.workspace").open_directories()
+end
+
 function M.count_workspaces()
   require("spaceman.workspace").count_workspaces()
 end

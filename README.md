@@ -58,18 +58,19 @@ For a full list of options and examples of using specific workspaces, see [Confi
 
 ## Usage
 
-By default, only the command is registered. Otherwise, you can enable the default keymap or write your own API calls.
-
-| Command          | Default Keymap | API Call                                   | Description                    |
-| ---------------- | -------------- | ------------------------------------------ | ------------------------------ |
-| `:Spaceman`      | `<leader>wo`   | `require("spaceman").list_workspaces()`    | List workspaces                |
-| `:SpacemanCount` | `<leader>wc`   | `require("spaceman").count_workspaces()`   | Count the number of workspaces |
-|                  |                | `require("spaceman").open_workspace(path)` | Open a specific workspace      |
-
-## Configuration
-
 > [!NOTE]
 > Directory refers to the parent of multiple workspaces. Workspaces refers to specific workspaces
+
+By default, only the command is registered. Otherwise, you can enable the default keymap or write your own API calls.
+
+| Command              | Default Keymap | API Call                                       | Description                                                     |
+| -------------------- | -------------- | ---------------------------------------------- | --------------------------------------------------------------- |
+| `:Spaceman`          | `<leader>wo`   | `require("spaceman").open_workspaces()`        | Find and open a workspace                                       |
+| `:SpacemanDirectory` | `<leader>wd`   | `require("spaceman").open_directories()`       | Find and open a directory (workspace parent) in the default app |
+| `:SpacemanCount`     | `<leader>wc`   | `require("spaceman").count_workspaces()`       | Count the number of workspaces                                  |
+|                      |                | `require("spaceman").api_open_workspace(path)` | Open a specific workspace                                       |
+
+## Configuration
 
 ### Defaults
 
@@ -222,6 +223,58 @@ require("spaceman").setup({
   }),
 })
 ```
+
+</details>
+
+## Local Development
+
+<details>
+
+<summary>If you want to work on the plugin yourself</summary>
+
+First, clone the repo:
+
+```bash
+git clone git@github.com:FireIsGood/spaceman.nvim.git
+```
+
+Add the plugin's folder as a local plugin:
+
+```lua
+-- lazy.nvim
+{
+  dir = "~/Documents/Programming/spaceman.nvim",
+  -- Your other settings
+}
+
+-- packer
+use {
+  "~/Documents/Programming/spaceman.nvim",
+  -- Your other settings
+}
+```
+
+The files are laid out as follows:
+
+```text
+lua/
+└── spaceman/
+    ├── adapters/
+    │   ├── telescope.lua   # Telescope adapter
+    │   └── vim-ui.lua      # Vim UI adapter
+    ├── config.lua          # User configuration
+    ├── default_commands    # User Command setup
+    ├── default_keymaps     # Keymap setup
+    ├── init.lua            # API and setup function
+    ├── json.lua            # File system JSON helper functions
+    ├── util.lua            # File system and general utilities
+    └── workspace.lua       # General function calls (linked by API)
+README.md
+LICENSE
+.stylua.toml
+```
+
+(Tree made with [tree.nathanfriend.io](https://tree.nathanfriend.io/))
 
 </details>
 
