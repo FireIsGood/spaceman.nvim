@@ -119,6 +119,13 @@ function M.read_recent_data()
   return recent_data or {}
 end
 
+---Returns the last entry of the path
+---@param path string
+---@return string
+function M.fs_tail(path)
+  return path:match("^.*%/([^/]+)/?$") -- Get the parent directory
+end
+
 ---Returns the file separator for the current OS
 ---@return string
 function M.fs_sep()

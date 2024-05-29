@@ -24,8 +24,16 @@ function M.get_workspaces()
 
   -- Join in the stray workspaces
   for _, workspace in pairs(custom_workspaces) do
-    local name = workspace[1]
-    local path = workspace[2]
+    local name = ""
+    local path = ""
+    if type(workspace) == "string" then
+      name = Util.fs_tail(workspace)
+      path = workspace
+    elseif type(workspace) == "table" then
+      name = workspace[1]
+      path = workspace[2]
+    end
+
     table.insert(workspace_list, Util.create_entry(name, path))
   end
 
@@ -40,7 +48,7 @@ function M.get_directories()
   local directory_list = {}
 
   for _, directory in pairs(directories) do
-    local name = directory:match("^.*%/([^/]+)/?$")
+    local name = Util.fs_tail(directory)
     local path = directory
     table.insert(directory_list, Util.create_entry(name, path))
   end

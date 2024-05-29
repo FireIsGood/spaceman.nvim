@@ -80,7 +80,7 @@ The default configuration is as follows:
 -- default config
 require("spaceman").setup({
   directories = {},            -- List of directories
-  workspaces = {},             -- List of workspaces in the format { "name", "path" }
+  workspaces = {},             -- List of workspaces in the format { "name", "path" } or a string of the path
   sort_by_recent = true,       -- Whether to sort with recently opened workspaces in front
   use_default_keymaps = false, -- Whether to register keymaps
   rename_function = nil,       -- Function to rename your folders
@@ -119,6 +119,7 @@ require("spaceman").setup({
   workspaces = {
     { "Nvim-Data", "~/.local/share/nvim" },
     { "Config", "~/.config/nvim" },
+    "~/Desktop",
   },
 
   -- Enable the default keymaps
