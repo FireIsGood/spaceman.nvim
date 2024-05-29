@@ -76,6 +76,7 @@ function M.open_directories(opts)
     function(selection)
       if selection then
         vim.cmd("silent !open " .. selection.path)
+        Util.add_recent_data(selection.path)
       else
         Util.notify("No workspace selected", "warn")
       end

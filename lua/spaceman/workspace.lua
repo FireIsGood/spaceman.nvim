@@ -45,6 +45,8 @@ function M.get_directories()
     table.insert(directory_list, Util.create_entry(name, path))
   end
 
+  table.sort(directory_list, Util.sort_workspaces)
+
   return directory_list
 end
 

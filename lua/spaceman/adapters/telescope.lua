@@ -139,6 +139,7 @@ function M.open_directories(opts)
           local selection = action_state.get_selected_entry()
           if selection and selection ~= "" then
             vim.cmd("silent !open " .. selection.value.path)
+            Util.add_recent_data(selection.value.path)
           else
             Util.notify("No directory selected", "warn")
           end
