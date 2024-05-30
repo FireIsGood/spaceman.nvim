@@ -164,6 +164,21 @@ require("spaceman").setup({
 <details>
 <summary>Further Examples</summary>
 
+### Using hooks
+
+Hooks can be either a string with a single command, a table of strings of commands, or a function to be run.
+
+```lua
+require("spaceman").setup({
+  -- [OTHER SETTINGS]
+  hooks = {
+    -- before_move = "noh"                  -- A single command (string)
+    before_move = { "noh", "echo 'bye'" }   -- A table of commands (strings)
+    after_move = function() print("hi") end -- A function
+  }
+})
+```
+
 ### Using a Custom Rename Function
 
 The custom rename function is run on ALL names, including custom workspace names.
