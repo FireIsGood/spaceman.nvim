@@ -196,6 +196,14 @@ function M.remove_trailing_slash(path)
   return path
 end
 
+---@param path string
+function M.add_trailing_slash(path)
+  if string.sub(path, #path, #path) ~= M.fs_sep then
+    path = path .. M.fs_sep
+  end
+  return path
+end
+
 ---Returns a list of the folders in a directory
 ---@param path string
 ---@return WorkspaceEntry[]?

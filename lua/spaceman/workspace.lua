@@ -28,10 +28,10 @@ function M.get_workspaces()
     local path = ""
     if type(workspace) == "string" then
       name = Util.fs_tail(workspace)
-      path = workspace
+      path = Util.add_trailing_slash(workspace)
     elseif type(workspace) == "table" then
       name = workspace[1]
-      path = workspace[2]
+      path = Util.add_trailing_slash(workspace[2])
     end
 
     table.insert(workspace_list, Util.create_entry(name, path))
