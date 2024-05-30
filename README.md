@@ -158,22 +158,6 @@ require("spaceman").setup({
 <details>
 <summary>Further Examples</summary>
 
-### With Sessions.nvim
-
-You can use sessions.nvim instead of the built-in sessions for different functionality or existing configuration. Make
-sure you have the `use_sessions` set to `false` or the plugins may fight.
-
-```lua
-require("spaceman").setup({
-  -- [OTHER SETTINGS]
-  use_sessions = false,
-  hooks = {
-    before_move = { "SessionsStop" },
-    after_move = { "SessionsLoad" },
-  },
-})
-```
-
 ### Using a Custom Rename Function
 
 The custom rename function is run on ALL names, including custom workspace names.
@@ -202,30 +186,6 @@ require("spaceman").setup({
 })
 ```
 
-### Use vim-ui Instead of Telescope
-
-If you don't want to use telescope for any reason, you can explicitly switch to using the vim-ui menu. If you don't have
-telescope installed and don't explicitly set the adapter here, you will get a warning every time you list workspaces.
-
-```lua
-require("spaceman").setup({
-  -- [OTHER SETTINGS]
-  adapter = "vim-ui",
-})
-```
-
-### Saving the Data File Elsewhere
-
-The data file tracks timestamps for your recently used folders. If you wanted to share this across machines, you can
-change where it is saved.
-
-```lua
-require("spaceman").setup({
-  -- [OTHER SETTINGS]
-  data_path = "~/Documents/sync-or-whatever/spaceman_data.json", -- Store in a sync folder
-})
-```
-
 ### Telescope Options
 
 You may set a table of opts, either literally or through preset themes. See [Telescope
@@ -240,6 +200,47 @@ require("spaceman").setup({
     results_title = "Items or Something",
     scroll_strategy = "limit",
   }),
+})
+```
+
+### Use vim-ui Instead of Telescope
+
+If you don't want to use telescope for any reason, you can explicitly switch to using the vim-ui menu. If you don't have
+telescope installed and don't explicitly set the adapter here, you will get a warning every time you list workspaces.
+
+```lua
+require("spaceman").setup({
+  -- [OTHER SETTINGS]
+  adapter = "vim-ui",
+})
+```
+
+### Saving the Data File and Sessions folder Elsewhere
+
+The data file tracks timestamps for your recently used folders. The sessions folder holds your session files. If you
+wanted to share these across machines, you can change where they is saved.
+
+```lua
+require("spaceman").setup({
+  -- [OTHER SETTINGS]
+  data_path = "~/Documents/sync-or-whatever/spaceman_data.json", -- Store the file in a sync folder
+  sessions_path = "~/Documents/sync-or-whatever/sessions",       -- Store session files in a sync folder subdirectory
+})
+```
+
+### With Sessions.nvim
+
+**Sessions are already built-in to the plugin.** This is more for if you want different features or have existing
+sessions through this plugin.
+
+```lua
+require("spaceman").setup({
+  -- [OTHER SETTINGS]
+  use_sessions = false,
+  hooks = {
+    before_move = { "SessionsStop" },
+    after_move = { "SessionsLoad" },
+  },
 })
 ```
 
