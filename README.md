@@ -1,5 +1,11 @@
 # 👨‍🚀 spaceman.nvim 🚧
 
+<p>
+    <a href="https://dotfyle.com/plugins/FireIsGood/spaceman.nvim">
+        <img src="https://dotfyle.com/plugins/FireIsGood/spaceman.nvim/shield" />
+    </a>
+</p>
+
 > Spaceman\[ager\] for your workspaces
 
 Provides a way to a open workspaces given the parent directories or specific workspaces.
