@@ -2,9 +2,7 @@
 
 > Spaceman\[ager\] for your workspaces
 
-Provides a way to a open workspaces given the parent directories or specific workspaces. This is specifically helpful if
-you have a folder containing all your current projects and you wish to access any of those projects without writing the
-names of each into a separate file.
+Provides a way to a open workspaces given the parent directories or specific workspaces.
 
 - [Installation](#installation)
 - [Usage](#configuration)
