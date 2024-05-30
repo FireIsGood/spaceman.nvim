@@ -6,7 +6,7 @@ Provides a way to a open workspaces given the parent directories or specific wor
 you have a folder containing all your current projects and you wish to access any of those projects without writing the
 names of each into a separate file.
 
-- [Installation](#list-of-text-objects)
+- [Installation](#installation)
 - [Usage](#configuration)
 - [Configuration](#configuration)
 - [Non-Goals](#non-goals)
