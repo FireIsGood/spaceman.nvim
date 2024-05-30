@@ -34,7 +34,7 @@ If you have used Visual Studio Code, this is similar to their `File: Open Recent
 
 And the obligatory usage video:
 
-https://github.com/FireIsGood/spaceman.nvim/assets/109556932/b9bb232e-2a7f-474d-9560-e247d0551772
+https://github.com/FireIsGood/spaceman.nvim/assets/109556932/8ab66d04-1970-4b13-96bc-553053c9183f
 
 ## Installation
 
