@@ -8,11 +8,15 @@ local Util = require("spaceman.util")
 ---@param table table
 ---@param path string
 function M.write(table, path)
+  local normalized_path = vim.fs.normalize(path)
   -- Encode our data
   local data = vim.json.encode(table)
 
+  -- Create the path up to the file if needed
+  Util.fs_ensure_path(normalized_path)
+
   -- Open the file
-  local file, err = io.open(path, "w+")
+  local file, err = io.open(normalized_path, "w+")
   if not file then
     Util.notify("Could not open file: " .. err, "error")
     return
@@ -27,10 +31,11 @@ end
 ---@param path string
 ---@return table?
 function M.read(path)
+  local normalized_path = vim.fs.normalize(path)
   -- Open the file
-  local file, _ = io.open(path, "r")
+  local file, _ = io.open(normalized_path, "r")
   if not file then
-    M.write({}, path)
+    M.write({}, normalized_path)
     return {}
   end
 
