@@ -98,8 +98,12 @@ end
 function M.open_workspace(path)
   Util.add_recent_data(path)
 
+  -- User Pre-hooks and default pre-hooks
   local hooks = Config.config.hooks or {}
-  M.run_hook(hooks.before_move)
+  M.run_hook(hooks.before_move, path)
+  if Config.config.use_default_hooks then
+    M.run_hook({ "nohlsearch", "silent %bdelete!" })
+  end
 
   -- Change directory
   vim.cmd.cd(path)

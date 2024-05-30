@@ -11,6 +11,7 @@ local M = {}
 ---@field workspaces string[][]
 ---@field sort_by_recent? boolean
 ---@field use_default_keymaps? boolean
+---@field use_default_hooks? boolean
 ---@field adapter? "telescope" | "vim-ui"
 ---@field rename_function? function | nil
 ---@field hooks? UserHooks
@@ -23,6 +24,7 @@ local default_config = {
   workspaces = {},
   sort_by_recent = true,
   use_default_keymaps = false,
+  use_default_hooks = true,
   adapter = "telescope",
   rename_function = nil,
   hooks = {

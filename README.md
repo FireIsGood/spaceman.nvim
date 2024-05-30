@@ -102,6 +102,7 @@ require("spaceman").setup({
   workspaces = {},             -- List of workspaces in the format { "name", "path" } or a string of the path
   sort_by_recent = true,       -- Whether to sort with recently opened workspaces in front
   use_default_keymaps = false, -- Whether to register keymaps
+  use_default_hooks = true,    -- Whether to use default hooks (clear buffers, clear highlight)
   rename_function = nil,       -- Function to rename your folders
   adapter = "telescope",       -- Which adapter to use, either "telescope" or "vim-ui" (for compatibility)
   hooks = {                    -- Hooks of a single Vim command, a table of vim commands, a Lua function, or nil
@@ -123,7 +124,7 @@ All paths are expanded and normalized, so you can use `~` as short for your home
 Since opening the directory only changes directory to it, you will likely want to add hooks to delete buffers and/or set
 up sessions.
 
-Basic setup using directories, workspaces, and custom hooks:
+Basic setup using directories, workspaces:
 
 ```lua
 require("spaceman").setup({
@@ -143,17 +144,6 @@ require("spaceman").setup({
 
   -- Enable the default keymaps
   use_default_keymaps = true,
-
-  -- Hooks to be run before and after moving
-  hooks = {
-    -- Vim command list (A single string also works)
-    before_move = { "nohlsearch", "silent %bdelete!" },
-
-    -- Function (usually an anonymous function definition)
-    after_move = function()
-      print("We have arrived.")
-    end,
-  },
 })
 ```
 
@@ -169,7 +159,7 @@ require("spaceman").setup({
 require("spaceman").setup({
   -- [OTHER SETTINGS]
   hooks = {
-    before_move = { "noh", "SessionsStop", "silent %bdelete!" },
+    before_move = { "SessionsStop" },
     after_move = { "SessionsLoad" },
   },
 })
