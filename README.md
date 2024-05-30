@@ -316,6 +316,7 @@ If you wish to have the non-goal features described above, consider these option
 - [project.nvim](https://github.com/ahmedkhalf/project.nvim) manages based on file patterns
 - [workspaces.nvim](https://github.com/natecraddock/workspaces.nvim) manages workspaces manually
 - [whaler.nvim](https://github.com/salorak/whaler.nvim) looks for git directories
+- [projections.nvim](https://github.com/GnikDroy/projections.nvim) similar style with pattern matching, but more config
 
 For more plugins in that vein, check out the [Telescope Extensions wiki](https://github.com/nvim-telescope/telescope.nvim/wiki/Extensions)
 
