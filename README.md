@@ -6,7 +6,7 @@
     </a>
 </p>
 
-> Spaceman\[ager\] for your workspaces
+> \[work\]spaceman\[ager\] for your workspaces
 
 Provides a way to a open workspaces given the parent directories or specific workspaces.
 
