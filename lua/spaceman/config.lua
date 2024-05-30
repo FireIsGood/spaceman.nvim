@@ -12,11 +12,13 @@ local M = {}
 ---@field sort_by_recent? boolean
 ---@field use_default_keymaps? boolean
 ---@field use_default_hooks? boolean
+---@field use_sessions? boolean
 ---@field adapter? "telescope" | "vim-ui"
 ---@field rename_function? function | nil
 ---@field hooks? UserHooks
 ---@field telescope_opts? table?
 ---@field data_path? string?
+---@field sessions_path? string?
 
 ---@type UserConfig
 local default_config = {
@@ -25,6 +27,7 @@ local default_config = {
   sort_by_recent = true,
   use_default_keymaps = false,
   use_default_hooks = true,
+  use_sessions = true,
   adapter = "telescope",
   rename_function = nil,
   hooks = {
@@ -33,6 +36,7 @@ local default_config = {
   },
   telescope_opts = nil,
   data_path = vim.fn.stdpath("data") .. "/spaceman_data.json",
+  sessions_path = vim.fn.stdpath("data") .. "/sessions",
 }
 
 ---@param user_config UserConfig?

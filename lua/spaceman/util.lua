@@ -80,6 +80,19 @@ function M.get_adapter()
   return adapter
 end
 
+---Cleans the path into a usable file name
+-- This code emulates sessions.nvim for compatibility
+---@param path string
+function M.clean_path(path)
+  local normalized_path = vim.fs.normalize(path)
+  local cleaned_path, _ = normalized_path:gsub(M.fs_sep, ".")
+  if M.fs_sep ~= "/" then
+    return cleaned_path:sub(4) -- Windows `C:/`
+  else
+    return cleaned_path:sub(2) -- Linux `/`
+  end
+end
+
 --------------------------------------------------------------------------------
 -- Filesystem stuffs
 --------------------------------------------------------------------------------

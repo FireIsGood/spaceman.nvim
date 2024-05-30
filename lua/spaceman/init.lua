@@ -19,6 +19,14 @@ function M.api_open_workspace(path)
   require("spaceman.workspace").open_workspace(path)
 end
 
+function M.api_save_session()
+  require("spaceman.sessions").save()
+end
+
+function M.api_load_session()
+  require("spaceman.sessions").load()
+end
+
 --------------------------------------------------------------------------------
 
 ---@param user_config? UserConfig

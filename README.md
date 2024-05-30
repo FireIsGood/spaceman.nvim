@@ -73,6 +73,9 @@ use {
 }
 ```
 
+The spaceman.nvim plugin comes with all its bindings and automatic features disabled by default. It is highly
+recommended to enable sessions if you do not already have a plugin to manage them as shown above.
+
 For a full list of options and examples of using specific workspaces, see [Configuration](#configuration) below.
 
 ## Usage
@@ -103,6 +106,7 @@ require("spaceman").setup({
   sort_by_recent = true,       -- Whether to sort with recently opened workspaces in front
   use_default_keymaps = false, -- Whether to register keymaps
   use_default_hooks = true,    -- Whether to use default hooks (clear buffers, clear highlight)
+  use_sessions = true,         -- Whether to use sessions (RECOMMENDED TO ENABLE)
   rename_function = nil,       -- Function to rename your folders
   adapter = "telescope",       -- Which adapter to use, either "telescope" or "vim-ui" (for compatibility)
   hooks = {                    -- Hooks of a single Vim command, a table of vim commands, a Lua function, or nil
@@ -111,6 +115,7 @@ require("spaceman").setup({
   },
   telescope_opts = nil,        -- Options to pass to the telescope window
   data_path = vim.fn.stdpath("data") .. "/spaceman_data.json", -- Stores recently used workspaces
+  sessions_path = vim.fn.stdpath("data") .. "/sessions",       -- Stores sessions
 })
 ```
 
@@ -155,9 +160,13 @@ require("spaceman").setup({
 
 ### With Sessions.nvim
 
+You can use sessions.nvim instead of the built-in sessions for different functionality or existing configuration. Make
+sure you have the `use_sessions` set to `false` or the plugins may fight.
+
 ```lua
 require("spaceman").setup({
   -- [OTHER SETTINGS]
+  use_sessions = false,
   hooks = {
     before_move = { "SessionsStop" },
     after_move = { "SessionsLoad" },

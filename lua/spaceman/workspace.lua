@@ -98,6 +98,11 @@ end
 function M.open_workspace(path)
   Util.add_recent_data(path)
 
+  -- Stop the session
+  if Config.config.use_sessions then
+    require("spaceman.sessions").stop()
+  end
+
   -- User Pre-hooks and default pre-hooks
   local hooks = Config.config.hooks or {}
   M.run_hook(hooks.before_move, path)
@@ -108,7 +113,11 @@ function M.open_workspace(path)
   -- Change directory
   vim.cmd.cd(path)
 
-  M.run_hook(hooks.after_move)
+  -- Pre-hooks and start session
+  M.run_hook(hooks.after_move, path)
+  if Config.config.use_sessions then
+    require("spaceman.sessions").start()
+  end
 end
 
 ---Counts and notifies the number of workspaces
