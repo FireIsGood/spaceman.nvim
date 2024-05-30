@@ -30,6 +30,8 @@ automatically match the list of workspaces.
     └── other_program
 ```
 
+If you have used Visual Studio Code, this is similar to their `File: Open Recent...` action.
+
 And the obligatory usage video:
 
 https://github.com/FireIsGood/spaceman.nvim/assets/109556932/b9bb232e-2a7f-474d-9560-e247d0551772
@@ -287,6 +289,7 @@ lua/
     ├── default_keymaps     # Keymap setup
     ├── init.lua            # API and setup function
     ├── json.lua            # File system JSON helper functions
+    ├── sessions.lua        # Session saving and loading
     ├── util.lua            # File system and general utilities
     └── workspace.lua       # General function calls (linked by API)
 README.md
