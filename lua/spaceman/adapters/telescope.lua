@@ -67,9 +67,9 @@ function M.open_workspaces(opts)
 
       attach_mappings = function(prompt_bufnr)
         actions.select_default:replace(function()
-          actions.close(prompt_bufnr)
           local selection = action_state.get_selected_entry()
           if selection and selection ~= "" then
+            actions.close(prompt_bufnr) -- Close only if we selected an actual buffer
             Workspace.open_workspace(selection.value.path)
           else
             Util.notify("No workspace selected", "warn")
