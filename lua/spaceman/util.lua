@@ -135,6 +135,7 @@ end
 ---Splits into the { dir, tail }
 ---@param path string
 function M.fs_split_path(path)
+  path = M.remove_trailing_slash(path) -- Ensure paths are `/one/two` and not `/one/two/`
   local parts = vim.split(path, M.fs_sep)
 
   if #parts == 1 then
@@ -190,8 +191,8 @@ end
 
 ---@param path string
 function M.remove_trailing_slash(path)
-  if string.sub(path, #path, #path) == M.fs_sep then
-    path = string.sub(path, #path, #path - 1)
+  if path:sub(#path, #path) == M.fs_sep then
+    path = path:sub(1, #path - 1)
   end
   return path
 end
