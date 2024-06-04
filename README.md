@@ -111,8 +111,8 @@ require("spaceman").setup({
   workspaces = {},             -- List of workspaces in the format { "name", "path" } or a string of the path
   sort_by_recent = true,       -- Whether to sort with recently opened workspaces in front
   use_default_keymaps = false, -- Whether to register keymaps
-  use_default_hooks = true,    -- Whether to use default hooks (clear buffers, clear highlight)
-  use_sessions = true,         -- Whether to use sessions (RECOMMENDED TO ENABLE)
+  use_default_hooks = true,    -- Whether to use default hooks (write all files, clear highlights, close buffers)
+  use_sessions = true,         -- Whether to use sessions (RECOMMENDED FOR MOST USERS)
   rename_function = nil,       -- Function to rename your folders
   adapter = "telescope",       -- Which adapter to use, either "telescope" or "vim-ui" (for compatibility)
   hooks = {                    -- Hooks of a single Vim command, a table of vim commands, a Lua function, or nil
