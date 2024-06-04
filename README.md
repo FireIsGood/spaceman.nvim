@@ -179,6 +179,22 @@ require("spaceman").setup({
 })
 ```
 
+### Using custom keymaps
+
+You can either use the User Commands or the Lua API.
+
+```lua
+-- User commands
+map("n", "<leader>oj", ":Spaceman", { desc = "Open workspaces" })
+map("n", "<leader>ok", ":SpacemanDirectory", { desc = "Open directories" })
+map("n", "<leader>ol", ":SpacemanCount", { desc = "Count workspaces" })
+
+-- Lua API
+map("n", "<leader>oj", require("spaceman").open_workspaces, { desc = "Open workspaces" })
+map("n", "<leader>ok", require("spaceman").open_directories, { desc = "Open directories" })
+map("n", "<leader>ol", require("spaceman").count_workspaces, { desc = "Count workspaces" })
+```
+
 ### Using a Custom Rename Function
 
 The custom rename function is run on ALL names, including custom workspace names.
