@@ -107,7 +107,7 @@ function M.open_workspace(path)
   local hooks = Config.config.hooks or {}
   M.run_hook(hooks.before_move, path)
   if Config.config.use_default_hooks then
-    M.run_hook({ "nohlsearch", "silent %bdelete!" })
+    M.run_hook({ "silent wall", "nohlsearch", "silent %bdelete!" })
   end
 
   -- Change directory
