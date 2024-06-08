@@ -91,12 +91,13 @@ For a full list of options and examples of using specific workspaces, see [Confi
 
 By default, only the command is registered. Otherwise, you can enable the default keymap or write your own API calls.
 
-| Command              | Default Keymap | API Call                                       | Description                                                     |
-| -------------------- | -------------- | ---------------------------------------------- | --------------------------------------------------------------- |
-| `:Spaceman`          | `<leader>wo`   | `require("spaceman").open_workspaces()`        | Find and open a workspace                                       |
-| `:SpacemanDirectory` | `<leader>wd`   | `require("spaceman").open_directories()`       | Find and open a directory (workspace parent) in the default app |
-| `:SpacemanCount`     | `<leader>wc`   | `require("spaceman").count_workspaces()`       | Count the number of workspaces                                  |
-|                      |                | `require("spaceman").api_open_workspace(path)` | Open a specific workspace                                       |
+| Command              | Default Keymap | API Call                                        | Description                                                     |
+| -------------------- | -------------- | ----------------------------------------------- | --------------------------------------------------------------- |
+| `:Spaceman`          | `<leader>wo`   | `require("spaceman").open_workspaces()`         | Find and open a workspace                                       |
+| `:SpacemanDirectory` | `<leader>wd`   | `require("spaceman").open_directories()`        | Find and open a directory (workspace parent) in the default app |
+| `:SpacemanCount`     | `<leader>wc`   | `require("spaceman").count_workspaces()`        | Count the number of workspaces                                  |
+| `:SpacemanPrevious`  | `<leader>wp`   | `require("spaceman").open_previous_workspace()` | Open the previous workspace                                     |
+|                      |                | `require("spaceman").api_open_workspace(path)`  | Open a specific workspace                                       |
 
 ## Configuration
 

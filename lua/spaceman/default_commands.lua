@@ -8,6 +8,7 @@ local default_user_commands = {
   { command = "open_workspaces", user_cmd = "Spaceman", description = "Open workspaces" },
   { command = "open_directories", user_cmd = "SpacemanDirectory", description = "Open directories" },
   { command = "count_workspaces", user_cmd = "SpacemanCount", description = "Count workspaces" },
+  { command = "open_previous_workspace", user_cmd = "SpacemanPrevious", description = "Previous workspace" },
 }
 
 -- User commands

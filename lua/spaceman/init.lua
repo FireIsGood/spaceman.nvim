@@ -14,6 +14,10 @@ function M.count_workspaces()
   require("spaceman.workspace").count_workspaces()
 end
 
+function M.open_previous_workspace()
+  require("spaceman.workspace").open_previous_workspace()
+end
+
 ---@param path string
 function M.api_open_workspace(path)
   require("spaceman.workspace").open_workspace(path)

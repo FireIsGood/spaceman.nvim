@@ -93,6 +93,18 @@ function M.open_directories()
   adapter.open_directories()
 end
 
+function M.open_previous_workspace()
+  ---@type WorkspaceEntry?
+  local last_workspace = M.get_workspaces()[2]
+
+  if not last_workspace then
+    Util.notify("No last workspace found", "warn")
+    return
+  end
+
+  M.open_workspace(last_workspace.path)
+end
+
 ---Opens a workspace
 ---@param path string
 function M.open_workspace(path)
