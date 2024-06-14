@@ -2,7 +2,7 @@
 
 <p>
     <a href="https://dotfyle.com/plugins/FireIsGood/spaceman.nvim">
-        <img src="https://dotfyle.com/plugins/FireIsGood/spaceman.nvim/shield" />
+        <img src="https://dotfyle.com/plugins/FireIsGood/spaceman.nvim/shield" alt="dotfiles using Spaceman.nvim" />
     </a>
 </p>
 
@@ -38,7 +38,7 @@ If you have used Visual Studio Code, this is similar to their `File: Open Recent
 
 And the obligatory usage video:
 
-https://github.com/FireIsGood/spaceman.nvim/assets/109556932/8ab66d04-1970-4b13-96bc-553053c9183f
+<https://github.com/FireIsGood/spaceman.nvim/assets/109556932/8ab66d04-1970-4b13-96bc-553053c9183f>
 
 ## Installation
 
@@ -339,9 +339,9 @@ LICENSE
 
 ## Non-goals
 
-There are already many plugins to manage workspace folders based on file patterns, manual additions, or Git repositories. As
-such, this project's goal is not to search based on those types of criteria, but specifically the single-depth children
-of provided parent folders.
+There are already many plugins to manage workspace folders based on file patterns, manual additions, or Git
+repositories. As such, this project's goal is not to search based on those types of criteria, but specifically the
+single-depth children of provided parent folders.
 
 If you wish to have the non-goal features described above, consider these options:
 
