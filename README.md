@@ -79,10 +79,11 @@ use {
 }
 ```
 
-The spaceman.nvim plugin comes with all its bindings and automatic features disabled by default. It is highly
-recommended to enable sessions if you do not already have a plugin to manage them as shown above.
+The spaceman.nvim plugin comes with of the default keymaps disabled by default and does not automatically have
+directories or workspaces set up.
 
-For a full list of options and examples of using specific workspaces, see [Configuration](#configuration) below.
+For a full list of options and examples of using specific directory and workspace setups, see
+[Configuration](#configuration) below.
 
 ## Usage
 
@@ -129,12 +130,10 @@ require("spaceman").setup({
 ### Basic Setup
 
 Each entry in `directories` is a path to the parent of many workspaces. Each entry in `workspaces` is a specific
-workspace with its custom name and the path.
+workspace with its custom name and the path. Workspaces can override specific folders in a directory entry if you would
+like a specific name or if you would like to include nested workspaces.
 
 All paths are expanded and normalized, so you can use `~` as short for your home directory.
-
-Since opening the directory only changes directory to it, you will likely want to add hooks to delete buffers and/or set
-up sessions.
 
 Basic setup using directories, workspaces:
 
@@ -152,12 +151,17 @@ require("spaceman").setup({
     { "Nvim-Data", "~/.local/share/nvim" },
     { "Config", "~/.config/nvim" },
     "~/Desktop",
+    "~/Desktop/cool_project", -- Nesting is okay!
   },
 
   -- Enable the default keymaps
   use_default_keymaps = true,
 })
 ```
+
+Updating the configuration's directories or workspaces requires a restart due to various limitations, but any
+directories you specify here will always show their current contents. If you create new folders inside a directory you
+will not have to restart to see them, but if you want to specify a new directory or workspace folder you must restart.
 
 > [!NOTE]
 > Workspaces linking to the same folder will override directories.
@@ -198,7 +202,8 @@ map("n", "<leader>ol", require("spaceman").count_workspaces, { desc = "Count wor
 
 ### Using a Custom Rename Function
 
-The custom rename function is run on ALL names, including custom workspace names.
+The custom rename function is run on ALL names, including custom workspace names. This is mostly for personal taste,
+though you could technically just call every project "Joe" or something.
 
 ```lua
 require("spaceman").setup({
@@ -207,6 +212,7 @@ require("spaceman").setup({
     return string.gsub(" " .. name, "%W%l", string.upper):sub(2) -- Name to title case
     -- return string.gsub(name, "[-_]", " ")                     -- Underline and dash to space
     -- return string.gsub(name, "[-%s]", "_")                    -- Space and dash to underline
+    -- return "Joe"                                               -- Joe
   end,
 })
 ```
@@ -350,7 +356,7 @@ If you wish to have the non-goal features described above, consider these option
 - [whaler.nvim](https://github.com/salorak/whaler.nvim) looks for git directories
 - [projections.nvim](https://github.com/GnikDroy/projections.nvim) similar style with pattern matching, but more config
 
-For more plugins in that vein, check out the [Telescope Extensions wiki](https://github.com/nvim-telescope/telescope.nvim/wiki/Extensions)
+For more plugins in that vein, check out the [Telescope Extensions wiki](https://github.com/nvim-telescope/telescope.nvim/wiki/Extensions).
 
 ## Contributing
 
