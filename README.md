@@ -88,9 +88,10 @@ For a full list of options and examples of using specific directory and workspac
 ## Usage
 
 > [!NOTE]
-> Directory refers to the parent of multiple workspaces. Workspaces refers to specific workspaces
+> Directory refers to the parent of multiple workspaces. Workspaces refers to specific workspaces.
 
-By default, only the command is registered. Otherwise, you can enable the default keymap or write your own API calls.
+By default, only the commands are registered. You can enable the default keymaps in the configuration or call these
+commands separately.
 
 | Command              | Default Keymap | API Call                                        | Description                                                     |
 | -------------------- | -------------- | ----------------------------------------------- | --------------------------------------------------------------- |
