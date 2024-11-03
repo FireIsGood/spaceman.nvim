@@ -18,7 +18,7 @@ function M.get_workspaces()
   for _, directory in pairs(directories) do
     local dir_workspaces = Util.get_dir_folders(directory)
     if dir_workspaces then
-      workspace_list = vim.tbl_extend("force", workspace_list, dir_workspaces or {})
+      vim.list_extend(workspace_list, dir_workspaces or {})
     end
   end
 
