@@ -138,7 +138,7 @@ function M.open_directories(opts)
           actions.close(prompt_bufnr)
           local selection = action_state.get_selected_entry()
           if selection and selection ~= "" then
-            vim.cmd("silent !open " .. selection.value.path)
+            vim.cmd("silent !xdg-open " .. selection.value.path)
             Util.add_recent_data(selection.value.path)
           else
             Util.notify("No directory selected", "warn")
