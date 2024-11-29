@@ -2,7 +2,7 @@ local M = {}
 
 local Config = require("spaceman.config")
 
-local uv = vim.loop
+local uv = vim.uv
 
 ---@class WorkspaceEntry
 ---@field name string
