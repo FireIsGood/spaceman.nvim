@@ -1,6 +1,6 @@
 local M = {}
 
-local cmd = vim.api.nvim_create_user_command
+local au_cmd = vim.api.nvim_create_user_command
 
 --------------------------------------------------------------------------------
 
@@ -14,7 +14,7 @@ local default_user_commands = {
 -- User commands
 function M.setup()
   for _, binding in pairs(default_user_commands) do
-    cmd(binding.user_cmd, function()
+    au_cmd(binding.user_cmd, function()
       require("spaceman")[binding.command]()
     end, { desc = binding.description })
   end
