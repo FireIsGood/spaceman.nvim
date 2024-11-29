@@ -47,7 +47,7 @@ function M.open_workspaces()
   )
 end
 
-function M.open_directories(opts)
+function M.open_directories()
   ---@type WorkspaceEntry[]
   local directories = Workspace.get_directories()
 
