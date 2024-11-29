@@ -68,7 +68,7 @@ function M.run_hook(hook, path)
   -- Run multiple vim hooks
   if type(hook) == "table" then
     for _, command in pairs(hook) do
-      vim.cmd(command)
+      vim.api.nvim_command(command)
     end
   end
 
@@ -123,7 +123,7 @@ function M.open_workspace(path)
   end
 
   -- Change directory
-  vim.cmd.cd(path)
+  vim.api.nvim_set_current_dir(path)
 
   -- Pre-hooks and start session
   M.run_hook(hooks.after_move, path)

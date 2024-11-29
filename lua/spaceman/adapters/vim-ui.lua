@@ -75,7 +75,7 @@ function M.open_directories()
     ---@param selection WorkspaceEntry?
     function(selection)
       if selection then
-        vim.cmd("silent !xdg-open " .. selection.path)
+        vim.api.nvim_command("silent !xdg-open " .. selection.path)
         Util.add_recent_data(selection.path)
       else
         Util.notify("No workspace selected", "warn")
