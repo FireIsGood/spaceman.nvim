@@ -139,7 +139,7 @@ function M.open_directory(path)
 
   -- Run default or a function given by the config
   -- Default is to open in your file manager
-  local directory_function = Config.config.directory_function or ("silent !xdg-open " .. p)
+  local directory_function = Config.config.directory_function or ("silent !xdg-open " .. path)
   M.run_hook(directory_function, path)
 end
 
