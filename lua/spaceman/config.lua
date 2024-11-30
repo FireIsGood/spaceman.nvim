@@ -6,9 +6,11 @@ local M = {}
 ---@field before_move? string[] | string | function | nil
 ---@field after_move? string[] | string | function | nil
 
+---@alias UserWorkspace string | string[]
+
 ---@class UserConfig
 ---@field directories string[]
----@field workspaces string[][]
+---@field workspaces UserWorkspace[]
 ---@field sort_by_recent? boolean
 ---@field use_default_keymaps? boolean
 ---@field use_default_hooks? boolean
