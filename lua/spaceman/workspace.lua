@@ -132,6 +132,17 @@ function M.open_workspace(path)
   end
 end
 
+---Opens a directory
+---@param path string
+function M.open_directory(path)
+  Util.add_recent_data(path)
+
+  -- Run default or a function given by the config
+  -- Default is to open in your file manager
+  local directory_function = Config.config.directory_function or ("silent !xdg-open " .. p)
+  M.run_hook(directory_function, path)
+end
+
 ---Counts and notifies the number of workspaces
 function M.count_workspaces()
   local count = #M.get_workspaces()

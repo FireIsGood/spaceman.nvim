@@ -18,6 +18,7 @@ local M = {}
 ---@field adapter? "telescope" | "vim-ui"
 ---@field rename_function? function | nil
 ---@field hooks? UserHooks
+---@field directory_function? function | nil
 ---@field telescope_opts? table?
 ---@field data_path? string?
 ---@field sessions_path? string?
@@ -36,6 +37,7 @@ local default_config = {
     before_move = nil,
     after_move = nil,
   },
+  directory_function = nil,
   telescope_opts = nil,
   data_path = vim.fn.stdpath("data") .. "/spaceman_data.json",
   sessions_path = vim.fn.stdpath("data") .. "/sessions",
