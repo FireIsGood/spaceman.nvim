@@ -9,6 +9,8 @@ local default_user_commands = {
   { command = "open_directories", user_cmd = "SpacemanDirectory", description = "Open directories" },
   { command = "count_workspaces", user_cmd = "SpacemanCount", description = "Count workspaces" },
   { command = "open_previous_workspace", user_cmd = "SpacemanPrevious", description = "Previous workspace" },
+  { command = "api_save_session", user_cmd = "SpacemanSessionSave", description = "Save Session Manually" },
+  { command = "api_load_session", user_cmd = "SpacemanSessionLoad", description = "Load Session Manually" },
 }
 
 -- User commands

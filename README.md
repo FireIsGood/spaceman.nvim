@@ -93,13 +93,15 @@ For a full list of options and examples of using specific directory and workspac
 By default, only the commands are registered. You can enable the default keymaps in the configuration or call these
 commands separately.
 
-| Command              | Default Keymap | API Call                                        | Description                                                     |
-| -------------------- | -------------- | ----------------------------------------------- | --------------------------------------------------------------- |
-| `:Spaceman`          | `<leader>wo`   | `require("spaceman").open_workspaces()`         | Find and open a workspace                                       |
-| `:SpacemanDirectory` | `<leader>wd`   | `require("spaceman").open_directories()`        | Find and open a directory (workspace parent) in the default app |
-| `:SpacemanCount`     | `<leader>wc`   | `require("spaceman").count_workspaces()`        | Count the number of workspaces                                  |
-| `:SpacemanPrevious`  | `<leader>wp`   | `require("spaceman").open_previous_workspace()` | Open the previous workspace                                     |
-|                      |                | `require("spaceman").api_open_workspace(path)`  | Open a specific workspace                                       |
+| Command                | Default Keymap | API Call                                        | Description                                                     |
+| ---------------------- | -------------- | ----------------------------------------------- | --------------------------------------------------------------- |
+| `:Spaceman`            | `<leader>wo`   | `require("spaceman").open_workspaces()`         | Find and open a workspace                                       |
+| `:SpacemanDirectory`   | `<leader>wd`   | `require("spaceman").open_directories()`        | Find and open a directory (workspace parent) in the default app |
+| `:SpacemanCount`       | `<leader>wc`   | `require("spaceman").count_workspaces()`        | Count the number of workspaces                                  |
+| `:SpacemanPrevious`    | `<leader>wp`   | `require("spaceman").open_previous_workspace()` | Open the previous workspace                                     |
+|                        |                | `require("spaceman").api_open_workspace(path)`  | Open a specific workspace                                       |
+| `:SpacemanSessionSave` |                | `require("spaceman").api_save_session()`        | Save the current session manually                               |
+| `:SpacemanSessionLoad` |                | `require("spaceman").api_load_session()`        | Load the current session manually                               |
 
 ## Configuration
 
