@@ -4,9 +4,9 @@ local Util = require("spaceman.util")
 
 --------------------------------------------------------------------------------
 
----Write a table to the path
----@param table table
----@param path string
+---Write a table to the path as a JSON file
+---@param table table: Table to write
+---@param path string: Path to file
 function M.write(table, path)
   local normalized_path = vim.fs.normalize(path)
   -- Encode our data
@@ -27,9 +27,9 @@ function M.write(table, path)
   file:close()
 end
 
----Read a json file from the path
----@param path string
----@return table?
+---Read a JSON file from the path
+---@param path string: Path to file
+---@return table?: Converted JSON file as table or Nil
 function M.read(path)
   local normalized_path = vim.fs.normalize(path)
   -- Open the file

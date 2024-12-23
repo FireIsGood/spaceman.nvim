@@ -105,7 +105,7 @@ function M.data_path()
 end
 
 ---Adds a path to the recently used data at the current time
----@param path string
+---@param path string: Path to add
 function M.add_recent_data(path)
   local data_path = M.data_path()
   if data_path == nil then
@@ -133,7 +133,7 @@ function M.read_recent_data()
 end
 
 ---Splits into the { dir, tail }
----@param path string
+---@param path string: Path to split
 function M.fs_split_path(path)
   path = M.remove_trailing_slash(path) -- Ensure paths are `/one/two` and not `/one/two/`
   local parts = vim.split(path, M.fs_sep)

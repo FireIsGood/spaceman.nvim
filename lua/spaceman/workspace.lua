@@ -58,7 +58,8 @@ function M.get_directories()
   return directory_list
 end
 
----@param hook string[] | string | function
+---@param hook string[] | string | function: Hook to be run
+---@param path string?: Path of new workspace
 function M.run_hook(hook, path)
   -- Run single vim hook
   if type(hook) == "string" then
@@ -106,7 +107,7 @@ function M.open_previous_workspace()
 end
 
 ---Opens a workspace
----@param path string
+---@param path string: Path of workspace
 function M.open_workspace(path)
   Util.add_recent_data(path)
 
@@ -133,7 +134,7 @@ function M.open_workspace(path)
 end
 
 ---Opens a directory
----@param path string
+---@param path string: Path of directory
 function M.open_directory(path)
   Util.add_recent_data(path)
 
